@@ -11,7 +11,7 @@ protocol DataProvidable {
     func fetchPair(for food: String, completion: @escaping (Result<WinePairing, APIError>) -> Void)
 }
 
-enum SpoonacularEndpoint: Endpoint {
+enum WineEndpoint: Endpoint {
     case winePairing
 
     var rawValue: String {
@@ -42,7 +42,7 @@ final class DataProvider: DataProvidable {
     func fetchPair(for food: String, completion: @escaping (Result<WinePairing, APIError>) -> Void) {
         let parameters: [String: String] = [kFoodKey: food]
         
-        apiService.fetch(from: SpoonacularEndpoint.winePairing,
+        apiService.fetch(from: WineEndpoint.winePairing,
                          parameters: parameters,
                          completion: completion)
     }
