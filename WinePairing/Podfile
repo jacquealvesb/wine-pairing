@@ -6,5 +6,6 @@ target 'WinePairing' do
   use_frameworks!
 
   pod 'SwiftLint'
+  pod 'Alamofire', '~> 5.2'
 
 end
