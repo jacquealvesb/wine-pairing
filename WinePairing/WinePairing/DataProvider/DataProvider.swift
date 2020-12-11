@@ -23,14 +23,20 @@ enum SpoonacularEndpoint: Endpoint {
 }
 
 final class DataProvider: DataProvidable {
-    static let shared = DataProvider()
+    
+    // MARK: - Constants
+    
     let kFoodKey = "food"
+    
+    // MARK: - Variables
     
     private var apiService: APIService
     
-    init() {
-        let configuration = APIServiceConfiguration(apiKey: kSpoonacularApiKey)
-        apiService = APIService(configuration: configuration, service: AlmofireService.shared)
+    // MARK: - Functions
+    
+    init(service: Service, apiKey: String) {
+        let configuration = APIServiceConfiguration(apiKey: apiKey)
+        apiService = APIService(configuration: configuration, service: service)
     }
     
     func fetchPair(for food: String, completion: @escaping (Result<WinePairing, APIError>) -> Void) {
