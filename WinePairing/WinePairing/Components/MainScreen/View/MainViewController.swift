@@ -7,7 +7,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
+    
+    let screen = MainView(frame: UIScreen.main.bounds)
+    
+    override func loadView() {
+        self.view = screen
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
