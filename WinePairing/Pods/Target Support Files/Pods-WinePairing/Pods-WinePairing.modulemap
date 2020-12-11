@@ -1,0 +1,6 @@
+framework module Pods_WinePairing {
+  umbrella header "Pods-WinePairing-umbrella.h"
+
+  export *
+  module * { export * }
+}
