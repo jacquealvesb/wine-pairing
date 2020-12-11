@@ -54,6 +54,10 @@ final class APIService {
         var params = parameters
         params?[kApiKey] = configuration.apiKey
         
-        service.fetch(from: endpoint, parameters: params, completion: completion)
+        service.fetch(from: endpoint, parameters: params) { (result: Result<T, APIError>) in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
     }
 }
