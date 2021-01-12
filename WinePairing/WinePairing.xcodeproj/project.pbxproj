@@ -14,6 +14,7 @@
 		171BFB98258C2EB100F73BCF /* WineSuggestionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171BFB97258C2EB100F73BCF /* WineSuggestionsViewModel.swift */; };
 		171BFB9C258C2EB900F73BCF /* WineSuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171BFB9B258C2EB900F73BCF /* WineSuggestionsView.swift */; };
 		171BFB9F258C2EC800F73BCF /* WineSuggestions+DelegateAndDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171BFB9E258C2EC800F73BCF /* WineSuggestions+DelegateAndDataSource.swift */; };
+		1726ECF725ADEB41003B6A41 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726ECF625ADEB41003B6A41 /* TextButton.swift */; };
 		172BF5CE258BFE6700D65867 /* WineCategoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172BF5CD258BFE6700D65867 /* WineCategoryCellView.swift */; };
 		172BF5D1258BFEEE00D65867 /* WineCategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172BF5D0258BFEEE00D65867 /* WineCategoryCellViewModel.swift */; };
 		17350EDF25A3C6C40010EB88 /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17350EDE25A3C6C40010EB88 /* StarsView.swift */; };
@@ -46,6 +47,7 @@
 		171BFB97258C2EB100F73BCF /* WineSuggestionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineSuggestionsViewModel.swift; sourceTree = "<group>"; };
 		171BFB9B258C2EB900F73BCF /* WineSuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineSuggestionsView.swift; sourceTree = "<group>"; };
 		171BFB9E258C2EC800F73BCF /* WineSuggestions+DelegateAndDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WineSuggestions+DelegateAndDataSource.swift"; sourceTree = "<group>"; };
+		1726ECF625ADEB41003B6A41 /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		172BF5CD258BFE6700D65867 /* WineCategoryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineCategoryCellView.swift; sourceTree = "<group>"; };
 		172BF5D0258BFEEE00D65867 /* WineCategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineCategoryCellViewModel.swift; sourceTree = "<group>"; };
 		17350EDE25A3C6C40010EB88 /* StarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsView.swift; sourceTree = "<group>"; };
@@ -104,6 +106,23 @@
 				171BFB8A258C28AA00F73BCF /* WineCellView */,
 			);
 			path = WineSuggestions;
+			sourceTree = "<group>";
+		};
+		1726ECF425ADEB1B003B6A41 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				17F11E7125840ECF00854FC2 /* RoundButton */,
+				1726ECF525ADEB28003B6A41 /* TextButton */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		1726ECF525ADEB28003B6A41 /* TextButton */ = {
+			isa = PBXGroup;
+			children = (
+				1726ECF625ADEB41003B6A41 /* TextButton.swift */,
+			);
+			path = TextButton;
 			sourceTree = "<group>";
 		};
 		172BF5CB258BFE1700D65867 /* WineCategories */ = {
@@ -190,9 +209,9 @@
 		1762996D2582F69300255C6F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				1726ECF425ADEB1B003B6A41 /* Buttons */,
 				1784D31325ACBB3900031AF5 /* DetailsQuote */,
 				1762996E2582F6A000255C6F /* MainScreen */,
-				17F11E7125840ECF00854FC2 /* RoundButton */,
 				17350EDD25A3C6A40010EB88 /* Stars */,
 				172BF5CB258BFE1700D65867 /* WineCategories */,
 				171BFB96258C2E7D00F73BCF /* WineSuggestions */,
@@ -440,6 +459,7 @@
 				172BF5D1258BFEEE00D65867 /* WineCategoryCellViewModel.swift in Sources */,
 				17B016A0258C01980075307C /* StringExtensions.swift in Sources */,
 				17B016AD258C076B0075307C /* WineCategoryView.swift in Sources */,
+				1726ECF725ADEB41003B6A41 /* TextButton.swift in Sources */,
 				171BFB85258C1A2700F73BCF /* WineCategoryViewModel.swift in Sources */,
 				17F11E522583A1E400854FC2 /* DataProvider.swift in Sources */,
 				176299732582F70400255C6F /* MainView.swift in Sources */,

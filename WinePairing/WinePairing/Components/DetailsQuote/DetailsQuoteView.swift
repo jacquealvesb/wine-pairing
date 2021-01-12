@@ -58,15 +58,9 @@ final class DetailsQuoteView: UIView {
         return view
     }()
     
-    lazy var closeButton: UIButton = {
-        let view = UIButton(frame: .zero)
-        let attributes: [NSAttributedString.Key: Any] = [.foregroundColor: Colors.quotationMark,
-                                                         .underlineStyle: NSUnderlineStyle.single.rawValue]
-        let attributeString = NSMutableAttributedString(string: "Close",
-                                                        attributes: attributes)
+    lazy var closeButton: TextButton = {
+        let view = TextButton(text: "Close", color: Colors.quotationMark)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .clear
-        view.setAttributedTitle(attributeString, for: .normal)
         return view
     }()
     

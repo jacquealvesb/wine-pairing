@@ -61,7 +61,7 @@ final class RoundButton: UIButton {
         
         setTitleColor(.white, for: .normal)
         setTitleColor(UIColor.white.withAlphaComponent(0.5), for: .disabled)
-        setTitleColor(UIColor.white.withAlphaComponent(0.5), for: .selected)
+        setTitleColor(UIColor.white.withAlphaComponent(0.5), for: .highlighted)
     }
 
     func setBackgroundColor(for state: UIControl.State) {
