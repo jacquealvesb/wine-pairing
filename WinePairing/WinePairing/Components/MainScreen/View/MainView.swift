@@ -34,10 +34,10 @@ extension MainView: ViewCode {
     }
     
     func setupConstraints() {
-        details.topAnchor.constraint(equalTo: topAnchor, constant: 16).isActive = true
-        details.heightAnchor.constraint(greaterThanOrEqualToConstant: 424).isActive = true
-        details.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
-        details.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
+        details.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        details.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        details.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        details.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
     }
     
     func setupAdditionalConfiguration() {

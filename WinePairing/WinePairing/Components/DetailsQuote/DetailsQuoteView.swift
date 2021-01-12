@@ -11,6 +11,23 @@ final class DetailsQuoteView: UIView {
     
     // MARK: - Variables
     
+    lazy var blurEffectView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: .regular)
+        let view = UIVisualEffectView(effect: blurEffect)
+        view.frame = bounds
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        return view
+    }()
+    
+    lazy var cardView: UIView = {
+        let view = UIView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isAccessibilityElement = false
+        view.backgroundColor = Colors.quoteBackground
+        view.layer.cornerRadius = 40
+        return view
+    }()
+    
     lazy var quotationMarkRight: UILabel = {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -31,12 +48,13 @@ final class DetailsQuoteView: UIView {
         return view
     }()
     
-    lazy var detailsLabel: UILabel = {
-        let view = UILabel(frame: .zero)
+    lazy var detailsLabel: UITextView = {
+        let view = UITextView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.font = .preferredFont(forTextStyle: .body)
         view.textAlignment = .center
-        view.numberOfLines = 0
+        view.backgroundColor = .clear
+        view.allowsEditingTextAttributes = false
         return view
     }()
     
@@ -68,31 +86,34 @@ final class DetailsQuoteView: UIView {
 
 extension DetailsQuoteView: ViewCode {
     func buildViewHierarchy() {
-        addSubview(quotationMarkLeft)
-        addSubview(detailsLabel)
-        addSubview(quotationMarkRight)
-        addSubview(closeButton)
+        addSubview(blurEffectView)
+        addSubview(cardView)
+        cardView.addSubview(quotationMarkLeft)
+        cardView.addSubview(detailsLabel)
+        cardView.addSubview(quotationMarkRight)
+        cardView.addSubview(closeButton)
     }
     
     func setupConstraints() {
-        quotationMarkRight.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
-        quotationMarkRight.topAnchor.constraint(equalTo: topAnchor, constant: 16).isActive = true
+        cardView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
+        cardView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
+        cardView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16).isActive = true
+        cardView.bottomAnchor.constraint(lessThanOrEqualTo: safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
+        
+        quotationMarkRight.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 16).isActive = true
+        quotationMarkRight.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 16).isActive = true
         
         detailsLabel.topAnchor.constraint(equalTo: quotationMarkRight.bottomAnchor).isActive = true
-        detailsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
-        detailsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
+        detailsLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 16).isActive = true
+        detailsLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -16).isActive = true
+        detailsLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 10).isActive = true
         
-        quotationMarkLeft.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
+        quotationMarkLeft.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -16).isActive = true
         quotationMarkLeft.topAnchor.constraint(equalTo: detailsLabel.bottomAnchor).isActive = true
         
-        closeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
-        closeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
+        closeButton.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 16).isActive = true
+        closeButton.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -16).isActive = true
         closeButton.topAnchor.constraint(equalTo: quotationMarkLeft.bottomAnchor, constant: 8).isActive = true
-        closeButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -24).isActive = true
-    }
-    
-    func setupAdditionalConfiguration() {
-        backgroundColor = Colors.quoteBackground
-        layer.cornerRadius = 40
+        closeButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -24).isActive = true
     }
 }
