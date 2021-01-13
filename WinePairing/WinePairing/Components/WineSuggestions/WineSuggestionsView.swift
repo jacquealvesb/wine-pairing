@@ -11,7 +11,7 @@ final class WineSuggestionsView: UIView {
     
     // MARK: - Variables
     
-    var viewModel: WineSuggestionsViewModel? {
+    private(set) var viewModel: WineSuggestionsViewModel? {
         didSet {
             reloadData()
         }
@@ -23,6 +23,7 @@ final class WineSuggestionsView: UIView {
         let view = UITableView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
+        view.allowsSelection = false
         return view
     }()
     

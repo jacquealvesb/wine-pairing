@@ -11,7 +11,7 @@ final class WineCategoryView: UIView {
     
     // MARK: - Variables
     
-    var viewModel: WineCategoryViewModel? {
+    private(set) var viewModel: WineCategoryViewModel? {
         didSet {
             reloadData()
         }

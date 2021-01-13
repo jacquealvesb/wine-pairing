@@ -14,7 +14,7 @@ final class WineCellView: UITableViewCell {
     
     // MARK: - Variables
     
-    var viewModel: WineCellViewModel? {
+    private var viewModel: WineCellViewModel? {
         didSet {
             setup()
         }
@@ -118,16 +118,16 @@ extension WineCellView: ViewCode {
     func setupConstraints() {
         wineImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16).isActive = true
         wineImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16).isActive = true
-        wineImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
+        wineImageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         wineImageView.widthAnchor.constraint(equalTo: wineImageView.heightAnchor).isActive = true
         
         titleLabel.topAnchor.constraint(equalTo: wineImageView.topAnchor, constant: 8).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: wineImageView.trailingAnchor, constant: 16).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
         averageRatingSectionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4).isActive = true
         averageRatingSectionLabel.leadingAnchor.constraint(equalTo: wineImageView.trailingAnchor, constant: 16).isActive = true
-        averageRatingSectionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
+        averageRatingSectionLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
         averageRatingLabel.topAnchor.constraint(equalTo: averageRatingSectionLabel.bottomAnchor, constant: 4).isActive = true
         averageRatingLabel.leadingAnchor.constraint(equalTo: wineImageView.trailingAnchor, constant: 16).isActive = true
@@ -138,5 +138,9 @@ extension WineCellView: ViewCode {
         
         ratingCountLabel.topAnchor.constraint(equalTo: starsStackView.bottomAnchor).isActive = true
         ratingCountLabel.leadingAnchor.constraint(equalTo: averageRatingLabel.trailingAnchor, constant: 8).isActive = true
+    }
+    
+    func setupAdditionalConfiguration() {
+        backgroundColor = .clear
     }
 }

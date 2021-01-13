@@ -15,7 +15,7 @@ final class WineCategoryCellView: UICollectionViewCell {
     
     // MARK: - Variables
     
-    var viewModel: WineCategoryCellViewModel? {
+    private var viewModel: WineCategoryCellViewModel? {
         didSet {
             setText(viewModel?.category)
             setColor(viewModel?.color)
