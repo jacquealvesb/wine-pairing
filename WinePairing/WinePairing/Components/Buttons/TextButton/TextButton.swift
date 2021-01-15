@@ -7,26 +7,17 @@
 
 import UIKit
 
-final class TextButton: UIButton {
-    
-    // MARK: - Constants
-    
-    let generator = UIImpactFeedbackGenerator(style: .light)
-    
-    // MARK: - Variables
-
-    var action: (() -> Void)?
+final class TextButton: Button {
     
     // MARK: - Life cycle
     
     init(text: String, color: UIColor, action: (() -> Void)? = nil) {
-        self.action = action
-        
         super.init(frame: .zero)
+        
+        self.action = action
         
         setupView()
         setupText(text, withColor: color)
-        setupTouchAction()
     }
     
     required init?(coder: NSCoder) {
@@ -47,21 +38,6 @@ final class TextButton: UIButton {
         setAttributedTitle(normalAttributeString, for: .normal)
         setAttributedTitle(touchedAttributeString, for: .disabled)
         setAttributedTitle(touchedAttributeString, for: .highlighted)
-    }
-    
-    func setupTouchAction() {
-        addTarget(self, action: #selector(tapped), for: .touchUpInside)
-    }
-    
-    // MARK: - Actions
-    
-    @objc private func tapped() {
-        action?()
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesEnded(touches, with: event)
-        generator.impactOccurred()
     }
 }
 

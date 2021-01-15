@@ -7,17 +7,12 @@
 
 import UIKit
 
-final class RoundButton: UIButton {
-    
-    // MARK: - Constants
-    
-    let generator = UIImpactFeedbackGenerator(style: .light)
+final class RoundButton: Button {
     
     // MARK: - Variables
     
     var text: String
     var color: UIColor
-    var action: (() -> Void)?
     
     override var isEnabled: Bool {
         didSet {
@@ -36,13 +31,13 @@ final class RoundButton: UIButton {
     init(text: String, color: UIColor, action: (() -> Void)? = nil) {
         self.text = text
         self.color = color
-        self.action = action
         
         super.init(frame: .zero)
         
+        self.action = action
+
         setupView()
         setupText(text)
-        setupTouchAction()
     }
     
     required init?(coder: NSCoder) {
@@ -75,21 +70,6 @@ final class RoundButton: UIButton {
         default:
             backgroundColor = color
         }
-    }
-    
-    func setupTouchAction() {
-        addTarget(self, action: #selector(tapped), for: .touchUpInside)
-    }
-    
-    // MARK: - Actions
-    
-    @objc private func tapped() {
-        action?()
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesEnded(touches, with: event)
-        generator.impactOccurred()
     }
 }
 
