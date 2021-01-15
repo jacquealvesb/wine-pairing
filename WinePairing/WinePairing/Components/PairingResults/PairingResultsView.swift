@@ -20,21 +20,6 @@ final class PairingResultsView: UIView {
     
     // MARK: - Views
     
-    lazy var closeButton: UIButton = {
-        let view = UIButton(frame: .zero)
-        let image = UIImage(systemName: "chevron.compact.down",
-                            withConfiguration: UIImage.SymbolConfiguration(weight: .bold))?
-            .withTintColor(Colors.button, renderingMode: .alwaysOriginal)
-    
-        view.contentVerticalAlignment = .fill
-        view.contentHorizontalAlignment = .fill
-        view.setImage(image, for: .normal)
-        view.imageView?.contentMode = .scaleAspectFit
-        view.accessibilityLabel = "Close"
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
     lazy var topPicksHeadline: UILabel = {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -77,7 +62,7 @@ final class PairingResultsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
-        accessibilityElements = [topPicksHeadline, wineCategories, moreDetailsButton, suggestionsHeadline, suggestionsList, closeButton]
+        accessibilityElements = [topPicksHeadline, wineCategories, moreDetailsButton, suggestionsHeadline, suggestionsList]
     }
     
     required init?(coder: NSCoder) {
@@ -103,7 +88,6 @@ final class PairingResultsView: UIView {
 
 extension PairingResultsView: ViewCode {
     func buildViewHierarchy() {
-        addSubview(closeButton)
         addSubview(topPicksHeadline)
         addSubview(wineCategories)
         addSubview(moreDetailsButton)
@@ -112,12 +96,7 @@ extension PairingResultsView: ViewCode {
     }
     
     func setupConstraints() {
-        closeButton.topAnchor.constraint(equalTo: topAnchor, constant: 16).isActive = true
-        closeButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        closeButton.widthAnchor.constraint(equalToConstant: 44).isActive = true
-        closeButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        
-        topPicksHeadline.topAnchor.constraint(equalTo: closeButton.bottomAnchor, constant: 16).isActive = true
+        topPicksHeadline.topAnchor.constraint(equalTo: topAnchor, constant: 16).isActive = true
         topPicksHeadline.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
         topPicksHeadline.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
         
@@ -140,7 +119,6 @@ extension PairingResultsView: ViewCode {
     }
     
     func setupAdditionalConfiguration() {
-        backgroundColor = Colors.quoteBackground
-        layer.cornerRadius = 40
+        backgroundColor = .clear
     }
 }
