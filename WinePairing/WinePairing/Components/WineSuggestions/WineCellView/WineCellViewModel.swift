@@ -41,6 +41,10 @@ final class WineCellViewModel {
         return URL(string: wine.imageURL)
     }
     
+    var accessibilityLabel: String {
+        return "\(wine.title). \(averageRating) out of five stars. \(ratingCount)."
+    }
+    
     init(wine: Wine) {
         self.wine = wine
     }

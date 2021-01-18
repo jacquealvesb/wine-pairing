@@ -76,7 +76,6 @@ final class WineCellView: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
-        setupAccessibility()
     }
     
     required init?(coder: NSCoder) {
@@ -96,10 +95,12 @@ final class WineCellView: UITableViewCell {
         averageRatingLabel.text = viewModel.averageRating
         starsStackView.setup(with: viewModel.stars)
         ratingCountLabel.text = viewModel.ratingCount
+        
+        setupAccessibility()
     }
     
     private func setupAccessibility() {
-        accessibilityElements = [titleLabel, starsStackView, ratingCountLabel]
+        accessibilityLabel = viewModel?.accessibilityLabel ?? ""
     }
 }
 

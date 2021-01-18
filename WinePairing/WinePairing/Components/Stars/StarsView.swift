@@ -24,7 +24,6 @@ class StarsView: UIStackView {
             
             self.clear()
             types.forEach { type in self.addArrangedSubview(UIImageView(image: self.star(for: type))) }
-            self.setupAccessibility(with: types)
         }
     }
     
@@ -71,12 +70,5 @@ class StarsView: UIStackView {
         }
         
         return imageColor
-    }
-    
-    private func setupAccessibility(with types: [StarType]) {
-        let fillStarsCount = types.filter { $0 == .fill }.count
-        isAccessibilityElement = true
-        accessibilityLabel = "\(fillStarsCount) out of five stars"
-        accessibilityUserInputLabels = [""]
     }
 }
