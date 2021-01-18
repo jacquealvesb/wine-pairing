@@ -77,5 +77,6 @@ class StarsView: UIStackView {
         let fillStarsCount = types.filter { $0 == .fill }.count
         isAccessibilityElement = true
         accessibilityLabel = "\(fillStarsCount) out of five stars"
+        accessibilityUserInputLabels = [""]
     }
 }

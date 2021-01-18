@@ -12,7 +12,7 @@ final class DetailsQuoteView: UIView {
     // MARK: - Variables
     
     lazy var blurEffectView: UIVisualEffectView = {
-        let blurEffect = UIBlurEffect(style: .regular)
+        let blurEffect = UIBlurEffect(style: .prominent)
         let view = UIVisualEffectView(effect: blurEffect)
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -55,6 +55,8 @@ final class DetailsQuoteView: UIView {
         view.textAlignment = .center
         view.backgroundColor = .clear
         view.allowsEditingTextAttributes = false
+        view.accessibilityUserInputLabels = [""]
+        view.accessibilityTraits = .staticText
         return view
     }()
     
@@ -73,6 +75,12 @@ final class DetailsQuoteView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Setups
+    
+    func setup(with text: String) {
+        detailsLabel.text = text
     }
 }
 
@@ -109,5 +117,9 @@ extension DetailsQuoteView: ViewCode {
         closeButton.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -16).isActive = true
         closeButton.topAnchor.constraint(equalTo: quotationMarkLeft.bottomAnchor, constant: 8).isActive = true
         closeButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -24).isActive = true
+    }
+    
+    func setupAdditionalConfiguration() {
+        backgroundColor = .clear
     }
 }
