@@ -24,6 +24,7 @@ final class WineSuggestionsView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
         view.allowsSelection = false
+        view.separatorStyle = .none
         return view
     }()
     
@@ -42,6 +43,8 @@ final class WineSuggestionsView: UIView {
     // MARK: - Setup
     
     private func setupCollectionView() {
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 600
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(WineCellView.self,

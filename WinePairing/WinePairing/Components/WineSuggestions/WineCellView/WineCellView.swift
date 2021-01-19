@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class WineCellView: UITableViewCell {
     // MARK: - Constants
@@ -25,8 +26,10 @@ final class WineCellView: UITableViewCell {
     lazy var wineImageView: UIImageView = {
         let view = UIImageView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .gray
+        view.backgroundColor = .white
         view.layer.cornerRadius = 20
+        view.contentMode = .scaleAspectFit
+        view.clipsToBounds = true
         return view
     }()
     
@@ -95,12 +98,15 @@ final class WineCellView: UITableViewCell {
         averageRatingLabel.text = viewModel.averageRating
         starsStackView.setup(with: viewModel.stars)
         ratingCountLabel.text = viewModel.ratingCount
+        wineImageView.kf.setImage(with: URL(string: ""),
+                                  placeholder: UIImage(named: "winePlaceholder"))
         
         setupAccessibility()
     }
     
     private func setupAccessibility() {
         accessibilityLabel = viewModel?.accessibilityLabel ?? ""
+        accessibilityUserInputLabels = [""]
     }
 }
 
