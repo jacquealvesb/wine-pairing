@@ -24,6 +24,7 @@ final class WineSuggestionsView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
         view.allowsSelection = false
+        view.separatorStyle = .none
         return view
     }()
     

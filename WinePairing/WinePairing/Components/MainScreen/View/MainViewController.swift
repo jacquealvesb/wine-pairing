@@ -59,17 +59,20 @@ class MainViewController: UIViewController {
     private func searchWinePairing(with food: String) {
         view.endEditing(true)
         contentView.activityIndicator.startAnimating()
+        UIAccessibility.post(notification: .layoutChanged, argument: contentView.activityIndicator)
         
-        dataProvider?.fetchPair(for: food) { [weak self] result in
-            guard let `self` = self else { return }
-            self.contentView.activityIndicator.stopAnimating()
-            self.contentView.searchBar.text = ""
-            switch result {
-            case .failure(let error):
-                print(error)
-                self.showEmptyResults(searchedText: food)
-            case .success(let pairing):
-                self.showPairingResults(pairing)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.dataProvider?.fetchPair(for: food) { [weak self] result in
+                guard let `self` = self else { return }
+                self.contentView.activityIndicator.stopAnimating()
+                self.contentView.searchBar.text = ""
+                switch result {
+                case .failure(let error):
+                    print(error)
+                    self.showEmptyResults(searchedText: food)
+                case .success(let pairing):
+                    self.showPairingResults(pairing)
+                }
             }
         }
     }
