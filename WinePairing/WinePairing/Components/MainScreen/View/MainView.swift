@@ -36,6 +36,14 @@ final class MainView: UIView {
         return view
     }()
     
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView(style: .medium)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    // MARK: - Life cycle
+    
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         setupView()
@@ -51,6 +59,7 @@ extension MainView: ViewCode {
         addSubview(searchBar)
         addSubview(label)
         addSubview(pairButton)
+        addSubview(activityIndicator)
     }
     
     func setupConstraints() {
@@ -66,6 +75,9 @@ extension MainView: ViewCode {
         
         pairButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         pairButton.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 8).isActive = true
+        
+        activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        activityIndicator.topAnchor.constraint(equalTo: pairButton.bottomAnchor, constant: 8).isActive = true
     }
     
     func setupAdditionalConfiguration() {
