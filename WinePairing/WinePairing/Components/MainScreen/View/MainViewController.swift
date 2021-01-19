@@ -62,6 +62,7 @@ class MainViewController: UIViewController {
         dataProvider?.fetchPair(for: food) { [weak self] result in
             guard let `self` = self else { return }
             self.contentView.activityIndicator.stopAnimating()
+            self.contentView.searchBar.text = ""
             switch result {
             case .failure(let error):
                 print(error)
@@ -92,7 +93,6 @@ extension MainViewController: UISearchBarDelegate {
         guard let food = searchBar.text, !food.isEmpty else { return } // TODO: Error message
         searchWinePairing(with: food)
         
-        searchBar.text = ""
         searchBar.endEditing(true)
     }
 }

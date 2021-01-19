@@ -56,7 +56,7 @@ final class WineCategoryCellView: UICollectionViewCell {
     }
     
     private func setText(_ text: String?) {
-        label.text = text
+        label.text = text?.capitalized
     }
 }
 
