@@ -26,6 +26,7 @@ final class MainView: UIView {
         view.placeholder = "Steak"
         view.accessibilityHint = "Enter a food to find out a pairing wine"
         view.searchBarStyle = .minimal
+        view.autocorrectionType = .default
         return view
     }()
     
@@ -65,12 +66,10 @@ extension MainView: ViewCode {
     func setupConstraints() {
         searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
         searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
-        searchBar.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         searchBar.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
         label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
-        label.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         label.bottomAnchor.constraint(equalTo: searchBar.topAnchor).isActive = true
         
         pairButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
