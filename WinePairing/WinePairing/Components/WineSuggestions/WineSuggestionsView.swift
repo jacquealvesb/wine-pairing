@@ -42,6 +42,8 @@ final class WineSuggestionsView: UIView {
     // MARK: - Setup
     
     private func setupCollectionView() {
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 600
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(WineCellView.self,

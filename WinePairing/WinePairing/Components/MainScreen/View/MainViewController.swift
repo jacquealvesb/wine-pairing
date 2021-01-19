@@ -57,6 +57,7 @@ class MainViewController: UIViewController {
     }
     
     private func searchWinePairing(with food: String) {
+        view.endEditing(true)
         contentView.activityIndicator.startAnimating()
         
         dataProvider?.fetchPair(for: food) { [weak self] result in
@@ -92,7 +93,5 @@ extension MainViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let food = searchBar.text, !food.isEmpty else { return } // TODO: Error message
         searchWinePairing(with: food)
-        
-        searchBar.endEditing(true)
     }
 }
