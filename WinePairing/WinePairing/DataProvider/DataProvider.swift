@@ -43,7 +43,14 @@ final class DataProvider: DataProvidable {
         let parameters: [String: String] = [kFoodKey: food]
         
         apiService.fetch(from: WineEndpoint.winePairing,
-                         parameters: parameters,
-                         completion: completion)
+                         parameters: parameters) { (result: Result<WinePairing, APIError>) in
+            if case .success(let pairing) = result,
+               (pairing.categories.isEmpty || pairing.topPicks.isEmpty || pairing.text.isEmpty) {
+                
+                completion(.failure(.noData))
+            } else {
+                completion(result)
+            }
+        }
     }
 }
