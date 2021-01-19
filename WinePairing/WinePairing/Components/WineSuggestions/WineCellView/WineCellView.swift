@@ -101,6 +101,7 @@ final class WineCellView: UITableViewCell {
     
     private func setupAccessibility() {
         accessibilityLabel = viewModel?.accessibilityLabel ?? ""
+        accessibilityUserInputLabels = [""]
     }
 }
 
