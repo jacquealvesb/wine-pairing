@@ -9,7 +9,11 @@ import UIKit
 
 class PairingViewController: UIViewController {
     
+    // MARK: - Views
+    
     let contentView: PairingView = PairingView(frame: UIScreen.main.bounds)
+    
+    // MARK: - Variables
     
     var viewModel: PairingViewModel? {
         didSet {
@@ -18,6 +22,8 @@ class PairingViewController: UIViewController {
         }
     }
     
+    // MARK: - Life cycle
+    
     override func loadView() {
         self.view = contentView
     }
@@ -25,13 +31,39 @@ class PairingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(shareWineButtonPressed(notification:)), name: Notification.Name("shareWine"), object: nil)
+        setupNotifications()
     }
     
+    // MARK: - Setups
+    
+    private func setupNotifications() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(shareWineButtonPressed(notification:)),
+                                               name: Notification.Name("shareWine"),
+                                               object: nil)
+    }
+    
+    // MARK: - Share functions
+    
     @objc func shareWineButtonPressed(notification: Notification) {
-        print(notification.object)
+        if let wine = notification.object as? Wine {
+            let textItem: String = "Checkout what 'Wine Pairing' suggested to drink with our meal: 🍷\n\n\(wine.link)\n"
+            
+            share(with: [textItem])
+            
+        } else {
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.error)
+        }
+    }
+    
+    private func share(with items: [Any?]) {
+        let activityViewController = UIActivityViewController(activityItems: items.compactMap { $0 }, applicationActivities: nil)
+        present(activityViewController, animated: true)
     }
 }
+
+// MARK: - PairingViewDelegate
 
 extension PairingViewController: PairingViewDelegate {
     func didClickCloseButton() {
