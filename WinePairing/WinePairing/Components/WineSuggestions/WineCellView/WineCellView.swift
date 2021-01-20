@@ -9,9 +9,11 @@ import UIKit
 import Kingfisher
 
 final class WineCellView: UITableViewCell {
+    
     // MARK: - Constants
     
     static let reuseIdentifier = "WineCellView"
+    private let kWinePlaceholderImage = "winePlaceholder"
     
     // MARK: - Variables
     
@@ -98,8 +100,8 @@ final class WineCellView: UITableViewCell {
         averageRatingLabel.text = viewModel.averageRating
         starsStackView.setup(with: viewModel.stars)
         ratingCountLabel.text = viewModel.ratingCount
-        wineImageView.kf.setImage(with: URL(string: ""),
-                                  placeholder: UIImage(named: "winePlaceholder"))
+        wineImageView.kf.setImage(with: viewModel.imageURL,
+                                  placeholder: UIImage(named: kWinePlaceholderImage))
         
         setupAccessibility()
     }
