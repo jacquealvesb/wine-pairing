@@ -63,6 +63,10 @@ final class WineSuggestionsView: UIView {
             self.tableView.reloadData()
         }
     }
+    
+    func shareItem(at indexPath: IndexPath) {
+        viewModel?.shareWine(at: indexPath)
+    }
 }
 
 // MARK: - View Code

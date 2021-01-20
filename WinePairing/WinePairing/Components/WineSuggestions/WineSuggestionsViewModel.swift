@@ -22,4 +22,9 @@ final class WineSuggestionsViewModel {
         guard indexPath.row < winesCount else { return nil }
         return WineCellViewModel(wine: wines[indexPath.row])
     }
+    
+    func shareWine(at indexPath: IndexPath) {
+        guard indexPath.row < winesCount else { return }
+        NotificationCenter.default.post(name: Notification.Name("shareWine"), object: wines[indexPath.row])
+    }
 }

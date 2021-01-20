@@ -24,6 +24,12 @@ class PairingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(shareWineButtonPressed(notification:)), name: Notification.Name("shareWine"), object: nil)
+    }
+    
+    @objc func shareWineButtonPressed(notification: Notification) {
+        print(notification.object)
     }
 }
 
