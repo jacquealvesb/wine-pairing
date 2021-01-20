@@ -61,6 +61,7 @@ final class WineSuggestionsView: UIView {
         DispatchQueue.main.async { [weak self] in
             guard let `self` = self else { return }
             self.tableView.reloadData()
+            self.swipeHintAnimation()
         }
     }
     

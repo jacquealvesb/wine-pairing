@@ -35,7 +35,22 @@ extension WineSuggestionsView: UITableViewDataSource, UITableViewDelegate {
             completion(true)
         }
         shareAction.image = UIImage(systemName: "square.and.arrow.up")
+        shareAction.backgroundColor = Colors.button
         
         return UISwipeActionsConfiguration(actions: [shareAction])
+    }
+    
+    func swipeHintAnimation() {
+        guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) else { return }
+
+        UIView.animate(withDuration: 0.5, delay: 1, options: [.curveEaseOut]) { [weak cell] in
+            guard let cell = cell else { return }
+            cell.transform = CGAffineTransform(translationX: -30, y: 0)
+        } completion: { _ in
+            UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseIn]) { [weak cell] in
+                guard let cell = cell else { return }
+                cell.transform = .identity
+            }
+        }
     }
 }

@@ -57,6 +57,8 @@ class MainViewController: UIViewController {
     }
     
     private func searchWinePairing(with food: String) {
+        let food = food.trimmingCharacters(in: .whitespacesAndNewlines)
+        
         view.endEditing(true)
         contentView.activityIndicator.startAnimating()
         UIAccessibility.post(notification: .layoutChanged, argument: contentView.activityIndicator)
