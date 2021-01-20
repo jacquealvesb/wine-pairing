@@ -27,4 +27,15 @@ extension WineSuggestionsView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 128
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let shareAction = UIContextualAction(style: .normal, title: "Share") { [weak self, indexPath] (_, _, completion) in
+            guard let `self` = self else { return }
+            self.shareItem(at: indexPath)
+            completion(true)
+        }
+        shareAction.image = UIImage(systemName: "square.and.arrow.up")
+        
+        return UISwipeActionsConfiguration(actions: [shareAction])
+    }
 }
