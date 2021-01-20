@@ -10,6 +10,7 @@ struct Wine: Codable {
     var title: String
     var averageRating: Float
     var imageURL: String
+    var link: String
     var ratingCount: Int
     
     enum CodingKeys: String, CodingKey {
@@ -17,6 +18,7 @@ struct Wine: Codable {
         case title
         case averageRating
         case imageURL = "imageUrl"
+        case link
         case ratingCount
     }
 }
