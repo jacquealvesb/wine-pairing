@@ -39,9 +39,8 @@ class MainViewController: UIViewController {
     
     private func setupSearchButton() {
         contentView.pairButton.action = { [weak self] in
-            guard let `self` = self,
-                  let food = self.contentView.searchBar.text, !food.isEmpty else { return } // TODO: Error message
-            self.searchWinePairing(with: food)
+            guard let `self` = self else { return }
+            self.searchWinePairing(with: self.contentView.searchBar.text)
         }
     }
     
@@ -56,8 +55,11 @@ class MainViewController: UIViewController {
         view.endEditing(true)
     }
     
-    private func searchWinePairing(with food: String) {
-        let food = food.trimmingCharacters(in: .whitespacesAndNewlines)
+    private func searchWinePairing(with food: String?) {
+        guard let food = food?.trimmingCharacters(in: .whitespacesAndNewlines), !food.isEmpty else {
+            self.contentView.showError()
+            return
+        }
         
         view.endEditing(true)
         contentView.activityIndicator.startAnimating()
@@ -96,7 +98,6 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let food = searchBar.text, !food.isEmpty else { return } // TODO: Error message
-        searchWinePairing(with: food)
+        searchWinePairing(with: searchBar.text)
     }
 }

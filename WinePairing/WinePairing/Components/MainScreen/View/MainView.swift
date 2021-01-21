@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AMPopTip
 
 final class MainView: UIView {
     
@@ -27,6 +28,20 @@ final class MainView: UIView {
         view.accessibilityHint = "Enter a food to find out a pairing wine"
         view.searchBarStyle = .minimal
         view.autocorrectionType = .default
+        return view
+    }()
+    
+    lazy var errorPopUp: PopTip = {
+        let view = PopTip()
+        view.shouldDismissOnTap = true
+        view.entranceAnimation = .scale
+        view.bubbleColor = Colors.filledStar
+        view.isAccessibilityElement = true
+        view.shouldGroupAccessibilityChildren = true
+        view.dismissHandler = { [weak self] _ in
+            guard let `self` = self else { return }
+            UIAccessibility.post(notification: .layoutChanged, argument: self.searchBar)
+        }
         return view
     }()
     
@@ -52,6 +67,22 @@ final class MainView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Error
+    
+    func showError() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.error)
+        
+        errorPopUp.show(text: "Please fill the search field with what you are eating",
+                        direction: .up,
+                        maxWidth: frame.width/2,
+                        in: self,
+                        from: searchBar.frame,
+                        duration: UIAccessibility.isVoiceOverRunning ? nil : 2)
+        errorPopUp.accessibilityLabel?.append(". Double-tap to dismiss")
+        UIAccessibility.post(notification: .layoutChanged, argument: errorPopUp)
     }
 }
 
