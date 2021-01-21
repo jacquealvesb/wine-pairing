@@ -38,6 +38,6 @@ class Button: UIButton {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
-        HapticsManager.button()
+        FeedbackManager.button()
     }
 }

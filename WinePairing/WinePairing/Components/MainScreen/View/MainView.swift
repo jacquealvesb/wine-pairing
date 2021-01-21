@@ -78,7 +78,7 @@ final class MainView: UIView {
     }
     
     func showError() {
-        HapticsManager.error()
+        FeedbackManager.error()
         
         errorPopUp.show(text: "Please fill the search field with what you are eating",
                         direction: .up,

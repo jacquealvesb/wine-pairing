@@ -52,7 +52,7 @@ class PairingViewController: UIViewController {
             share(with: [textItem])
             
         } else {
-            HapticsManager.error()
+            FeedbackManager.error()
         }
     }
     

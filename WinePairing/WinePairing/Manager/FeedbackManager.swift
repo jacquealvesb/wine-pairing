@@ -1,5 +1,5 @@
 //
-//  HapticsManager.swift
+//  FeedbackManager.swift
 //  WinePairing
 //
 //  Created by Jacqueline Alves on 21/01/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HapticsManager {
+final class FeedbackManager {
     static func error() {
         UINotificationFeedbackGenerator().notificationOccurred(.error)
     }
