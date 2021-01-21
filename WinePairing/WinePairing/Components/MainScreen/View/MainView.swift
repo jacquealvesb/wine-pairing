@@ -34,14 +34,9 @@ final class MainView: UIView {
     lazy var errorPopUp: PopTip = {
         let view = PopTip()
         view.shouldDismissOnTap = true
-        view.entranceAnimation = .scale
         view.bubbleColor = Colors.filledStar
         view.isAccessibilityElement = true
         view.shouldGroupAccessibilityChildren = true
-        view.dismissHandler = { [weak self] _ in
-            guard let `self` = self else { return }
-            UIAccessibility.post(notification: .layoutChanged, argument: self.searchBar)
-        }
         return view
     }()
     
@@ -63,6 +58,7 @@ final class MainView: UIView {
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         setupView()
+        setupErrorPopUp()
     }
     
     required init?(coder: NSCoder) {
@@ -70,6 +66,15 @@ final class MainView: UIView {
     }
     
     // MARK: - Error
+    
+    private func setupErrorPopUp() {
+        errorPopUp.entranceAnimation = UIAccessibility.isReduceMotionEnabled ? .none : .scale
+        errorPopUp.exitAnimation = UIAccessibility.isReduceMotionEnabled ? .none : .scale
+        errorPopUp.dismissHandler = { [weak self] _ in
+            guard let `self` = self else { return }
+            UIAccessibility.post(notification: .layoutChanged, argument: self.searchBar)
+        }
+    }
     
     func showError() {
         HapticsManager.error()
