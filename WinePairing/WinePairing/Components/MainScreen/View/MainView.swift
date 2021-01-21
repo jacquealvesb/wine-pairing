@@ -35,6 +35,7 @@ final class MainView: UIView {
         let view = PopTip()
         view.shouldDismissOnTap = true
         view.bubbleColor = Colors.filledStar
+        view.accessibilityUserInputLabels = [""]
         view.isAccessibilityElement = true
         view.shouldGroupAccessibilityChildren = true
         return view
