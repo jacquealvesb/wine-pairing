@@ -52,8 +52,7 @@ class PairingViewController: UIViewController {
             share(with: [textItem])
             
         } else {
-            let generator = UINotificationFeedbackGenerator()
-            generator.notificationOccurred(.error)
+            HapticsManager.error()
         }
     }
     

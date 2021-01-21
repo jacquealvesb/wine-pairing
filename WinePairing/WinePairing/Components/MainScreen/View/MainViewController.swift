@@ -75,8 +75,7 @@ class MainViewController: UIViewController {
                     print(error)
                     self.showEmptyResults(searchedText: food)
                 case .success(let pairing):
-                    let generator = UINotificationFeedbackGenerator()
-                    generator.notificationOccurred(.success)
+                    HapticsManager.success()
                     
                     self.showPairingResults(pairing)
                 }
@@ -101,6 +100,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        HapticsManager.button()
         searchWinePairing(with: searchBar.text)
     }
 }
