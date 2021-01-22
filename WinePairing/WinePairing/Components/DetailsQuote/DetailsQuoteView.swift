@@ -54,7 +54,7 @@ final class DetailsQuoteView: UIView {
         view.font = .preferredFont(forTextStyle: .body)
         view.textAlignment = .center
         view.backgroundColor = .clear
-        view.allowsEditingTextAttributes = false
+        view.isEditable = false
         view.accessibilityUserInputLabels = [""]
         view.accessibilityTraits = .staticText
         return view

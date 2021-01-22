@@ -9,10 +9,6 @@ import UIKit
 
 class Button: UIButton {
     
-    // MARK: - Constants
-    
-    let generator = UIImpactFeedbackGenerator(style: .light)
-    
     // MARK: - Variables
     
     var action: (() -> Void)?
@@ -42,6 +38,6 @@ class Button: UIButton {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
-        generator.impactOccurred()
+        FeedbackManager.button()
     }
 }

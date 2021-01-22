@@ -31,6 +31,7 @@ extension WineSuggestionsView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let shareAction = UIContextualAction(style: .normal, title: "Share") { [weak self, indexPath] (_, _, completion) in
             guard let `self` = self else { return }
+            FeedbackManager.button()
             self.shareItem(at: indexPath)
             completion(true)
         }

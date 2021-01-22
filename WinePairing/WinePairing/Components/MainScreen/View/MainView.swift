@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AMPopTip
 
 final class MainView: UIView {
     
@@ -30,6 +31,16 @@ final class MainView: UIView {
         return view
     }()
     
+    lazy var errorPopUp: PopTip = {
+        let view = PopTip()
+        view.shouldDismissOnTap = true
+        view.bubbleColor = Colors.filledStar
+        view.accessibilityUserInputLabels = [""]
+        view.isAccessibilityElement = true
+        view.shouldGroupAccessibilityChildren = true
+        return view
+    }()
+    
     lazy var pairButton: RoundButton = {
         let view = RoundButton(text: "Pair With Wine", color: Colors.button)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -48,10 +59,35 @@ final class MainView: UIView {
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         setupView()
+        setupErrorPopUp()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Error
+    
+    private func setupErrorPopUp() {
+        errorPopUp.entranceAnimation = UIAccessibility.isReduceMotionEnabled ? .none : .scale
+        errorPopUp.exitAnimation = UIAccessibility.isReduceMotionEnabled ? .none : .scale
+        errorPopUp.dismissHandler = { [weak self] _ in
+            guard let `self` = self else { return }
+            UIAccessibility.post(notification: .layoutChanged, argument: self.searchBar)
+        }
+    }
+    
+    func showError() {
+        FeedbackManager.error()
+        
+        errorPopUp.show(text: "Please fill the search field with what you are eating",
+                        direction: .up,
+                        maxWidth: frame.width/2,
+                        in: self,
+                        from: searchBar.frame,
+                        duration: UIAccessibility.isVoiceOverRunning ? nil : 2)
+        errorPopUp.accessibilityLabel?.append(". Double-tap to dismiss")
+        UIAccessibility.post(notification: .layoutChanged, argument: errorPopUp)
     }
 }
 

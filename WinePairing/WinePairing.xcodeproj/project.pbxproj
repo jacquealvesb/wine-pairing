@@ -30,6 +30,7 @@
 		176299692582F4DF00255C6F /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176299682582F4DF00255C6F /* ViewCode.swift */; };
 		176299732582F70400255C6F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176299722582F70400255C6F /* MainView.swift */; };
 		1784D31525ACBB7C00031AF5 /* DetailsQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1784D31425ACBB7C00031AF5 /* DetailsQuoteView.swift */; };
+		17A3DE2B25B9F9200031F11E /* FeedbackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A3DE2A25B9F9200031F11E /* FeedbackManager.swift */; };
 		17B016A0258C01980075307C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0169F258C01980075307C /* StringExtensions.swift */; };
 		17B016AD258C076B0075307C /* WineCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B016AC258C076B0075307C /* WineCategoryView.swift */; };
 		17EDD14925B1FCC800C0CC70 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDD14825B1FCC800C0CC70 /* Button.swift */; };
@@ -74,6 +75,7 @@
 		176299682582F4DF00255C6F /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		176299722582F70400255C6F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1784D31425ACBB7C00031AF5 /* DetailsQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsQuoteView.swift; sourceTree = "<group>"; };
+		17A3DE2A25B9F9200031F11E /* FeedbackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackManager.swift; sourceTree = "<group>"; };
 		17B0169F258C01980075307C /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		17B016AC258C076B0075307C /* WineCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineCategoryView.swift; sourceTree = "<group>"; };
 		17EDD14825B1FCC800C0CC70 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				1762996D2582F69300255C6F /* Components */,
 				17F11E502583A1D000854FC2 /* DataProvider */,
 				174429F62582EF450040F0C2 /* LaunchScreen.storyboard */,
+				17A3DE2925B9F90E0031F11E /* Manager */,
 				17F11E4825839E9500854FC2 /* Model */,
 				17F11E3E258396AF00854FC2 /* Service */,
 				176299612582F2B300255C6F /* Support Files */,
@@ -281,6 +284,14 @@
 				17EFE51225B5F3B40003B2A4 /* DetailsQuoteViewController.swift */,
 			);
 			path = DetailsQuote;
+			sourceTree = "<group>";
+		};
+		17A3DE2925B9F90E0031F11E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				17A3DE2A25B9F9200031F11E /* FeedbackManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		17B016A2258C019E0075307C /* Extensions */ = {
@@ -505,6 +516,7 @@
 				1729EF4425AF6BB600221092 /* PairingResultsViewModel.swift in Sources */,
 				171BFB8F258C2C4100F73BCF /* WineCellView.swift in Sources */,
 				172BF5CE258BFE6700D65867 /* WineCategoryCellView.swift in Sources */,
+				17A3DE2B25B9F9200031F11E /* FeedbackManager.swift in Sources */,
 				17F11E4A25839EC300854FC2 /* Wine.swift in Sources */,
 				171BFB9F258C2EC800F73BCF /* WineSuggestions+DelegateAndDataSource.swift in Sources */,
 				17EFE51325B5F3B40003B2A4 /* DetailsQuoteViewController.swift in Sources */,
