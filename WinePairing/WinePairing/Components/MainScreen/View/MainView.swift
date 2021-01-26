@@ -34,7 +34,7 @@ final class MainView: UIView {
     lazy var errorPopUp: PopTip = {
         let view = PopTip()
         view.shouldDismissOnTap = true
-        view.bubbleColor = Colors.filledStar
+        view.bubbleColor = Colors.errorPopUp
         view.accessibilityUserInputLabels = [""]
         view.isAccessibilityElement = true
         view.shouldGroupAccessibilityChildren = true

@@ -15,4 +15,5 @@ struct Colors {
     static let halfStar: UIColor = UIColor(named: "starFill") ?? .black
     static let quoteBackground: UIColor = UIColor(named: "quoteBackground") ?? .systemBackground
     static let quotationMark: UIColor = UIColor(named: "quotationMark") ?? .systemBlue
+    static let errorPopUp: UIColor = UIColor(named: "errorPopUp") ?? .systemBlue
 }
