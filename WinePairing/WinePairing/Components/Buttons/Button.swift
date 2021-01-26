@@ -17,6 +17,7 @@ class Button: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupLargeContentViewer()
         setupTouchAction()
     }
     
@@ -25,6 +26,11 @@ class Button: UIButton {
     }
     
     // MARK: - Setups
+    
+    private func setupLargeContentViewer() {
+        showsLargeContentViewer = true
+        addInteraction(UILargeContentViewerInteraction())
+    }
     
     private func setupTouchAction() {
         addTarget(self, action: #selector(tapped), for: .touchUpInside)

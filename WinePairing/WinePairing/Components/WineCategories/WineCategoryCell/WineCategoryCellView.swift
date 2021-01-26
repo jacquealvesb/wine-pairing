@@ -38,6 +38,7 @@ final class WineCategoryCellView: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+        setupLargeContentViewer()
     }
     
     required init?(coder: NSCoder) {
@@ -50,6 +51,11 @@ final class WineCategoryCellView: UICollectionViewCell {
         self.viewModel = viewModel
     }
     
+    private func setupLargeContentViewer() {
+        showsLargeContentViewer = true
+        addInteraction(UILargeContentViewerInteraction())
+    }
+    
     private func setColor(_ colorName: String?) {
         guard let colorName = colorName else { return }
         backgroundColor = UIColor(named: colorName) ?? .black
@@ -57,6 +63,7 @@ final class WineCategoryCellView: UICollectionViewCell {
     
     private func setText(_ text: String?) {
         label.text = text?.capitalized
+        largeContentTitle = text?.capitalized
     }
 }
 
