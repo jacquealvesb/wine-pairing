@@ -39,6 +39,7 @@ final class WineCellView: UITableViewCell {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.font = .preferredFont(forTextStyle: .headline)
+        view.adjustsFontForContentSizeCategory = true
         view.numberOfLines = 0
         return view
     }()
@@ -47,7 +48,9 @@ final class WineCellView: UITableViewCell {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.font = .preferredFont(forTextStyle: .caption1)
+        view.adjustsFontForContentSizeCategory = true
         view.textColor = .secondaryLabel
+        view.numberOfLines = 0
         view.text = "Average rating"
         return view
     }()
@@ -56,6 +59,7 @@ final class WineCellView: UITableViewCell {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.font = .preferredFont(forTextStyle: .largeTitle)
+        view.adjustsFontForContentSizeCategory = true
         view.textColor = Colors.wineCategory
         return view
     }()
@@ -65,6 +69,7 @@ final class WineCellView: UITableViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .horizontal
         view.alignment = .leading
+        view.distribution = .fillProportionally
         return view
     }()
     
@@ -72,6 +77,7 @@ final class WineCellView: UITableViewCell {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.font = .preferredFont(forTextStyle: .caption2)
+        view.adjustsFontForContentSizeCategory = true
         view.textColor = .secondaryLabel
         return view
     }()
@@ -144,6 +150,7 @@ extension WineCellView: ViewCode {
         
         starsStackView.topAnchor.constraint(equalTo: averageRatingSectionLabel.bottomAnchor, constant: 4).isActive = true
         starsStackView.leadingAnchor.constraint(equalTo: averageRatingLabel.trailingAnchor, constant: 8).isActive = true
+        starsStackView.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -8).isActive = true
         
         ratingCountLabel.topAnchor.constraint(equalTo: starsStackView.bottomAnchor).isActive = true
         ratingCountLabel.leadingAnchor.constraint(equalTo: averageRatingLabel.trailingAnchor, constant: 8).isActive = true

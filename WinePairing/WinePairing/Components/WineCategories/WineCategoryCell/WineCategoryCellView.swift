@@ -27,7 +27,7 @@ final class WineCategoryCellView: UICollectionViewCell {
     lazy var label: UILabel = {
         let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.font = .preferredFont(forTextStyle: .body)
+        view.font = .systemFont(ofSize: UIFont.labelFontSize, weight: .regular)
         view.textColor = .white
         view.textAlignment = .center
         return view

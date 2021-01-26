@@ -52,6 +52,7 @@ final class DetailsQuoteView: UIView {
         let view = UITextView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.font = .preferredFont(forTextStyle: .body)
+        view.adjustsFontForContentSizeCategory = true
         view.textAlignment = .center
         view.backgroundColor = .clear
         view.isEditable = false
