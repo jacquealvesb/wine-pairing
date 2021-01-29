@@ -132,11 +132,12 @@ extension WineCellView: ViewCode {
     
     func setupConstraints() {
         wineImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16).isActive = true
-        wineImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16).isActive = true
+        wineImageView.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -16).isActive = true
         wineImageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        wineImageView.widthAnchor.constraint(equalTo: wineImageView.heightAnchor).isActive = true
+        wineImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3).isActive = true
+        wineImageView.heightAnchor.constraint(equalTo: wineImageView.widthAnchor).isActive = true
         
-        titleLabel.topAnchor.constraint(equalTo: wineImageView.topAnchor, constant: 8).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: wineImageView.trailingAnchor, constant: 16).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
@@ -154,6 +155,7 @@ extension WineCellView: ViewCode {
         
         ratingCountLabel.topAnchor.constraint(equalTo: starsStackView.bottomAnchor).isActive = true
         ratingCountLabel.leadingAnchor.constraint(equalTo: averageRatingLabel.trailingAnchor, constant: 8).isActive = true
+        ratingCountLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -16).isActive = true
     }
     
     func setupAdditionalConfiguration() {
