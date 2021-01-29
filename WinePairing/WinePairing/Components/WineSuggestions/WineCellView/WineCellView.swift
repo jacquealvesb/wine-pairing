@@ -58,9 +58,9 @@ final class WineCellView: UITableViewCell {
     lazy var averageRatingLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.font = .preferredFont(forTextStyle: .largeTitle)
+        view.font = UIFontMetrics(forTextStyle: .largeTitle).scaledFont(for: .systemFont(ofSize: UIFont.buttonFontSize*2, weight: .bold))
         view.adjustsFontForContentSizeCategory = true
-        view.textColor = Colors.wineCategory
+        view.textColor = Colors.averageRate
         return view
     }()
     
