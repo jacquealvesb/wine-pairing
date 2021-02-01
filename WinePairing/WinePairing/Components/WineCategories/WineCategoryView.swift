@@ -42,10 +42,13 @@ final class WineCategoryView: UIView {
     // MARK: - Setup
     
     private func setupCollectionView() {
-        collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(WineCategoryCellView.self,
                                 forCellWithReuseIdentifier: WineCategoryCellView.reuseIdentifier)
+        
+        if let collectionViewLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        }
     }
     
     func setup(with viewModel: WineCategoryViewModel) {

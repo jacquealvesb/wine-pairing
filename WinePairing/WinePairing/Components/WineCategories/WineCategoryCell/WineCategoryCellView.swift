@@ -75,10 +75,10 @@ extension WineCategoryCellView: ViewCode {
     }
     
     func setupConstraints() {
-        label.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        label.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        label.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        label.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        label.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
+        label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
+        label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
+        label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
     }
     
     func setupAdditionalConfiguration() {

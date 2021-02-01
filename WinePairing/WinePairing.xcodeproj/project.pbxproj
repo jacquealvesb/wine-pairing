@@ -31,7 +31,6 @@
 		176299732582F70400255C6F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176299722582F70400255C6F /* MainView.swift */; };
 		1784D31525ACBB7C00031AF5 /* DetailsQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1784D31425ACBB7C00031AF5 /* DetailsQuoteView.swift */; };
 		17A3DE2B25B9F9200031F11E /* FeedbackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A3DE2A25B9F9200031F11E /* FeedbackManager.swift */; };
-		17B016A0258C01980075307C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0169F258C01980075307C /* StringExtensions.swift */; };
 		17B016AD258C076B0075307C /* WineCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B016AC258C076B0075307C /* WineCategoryView.swift */; };
 		17EDD14925B1FCC800C0CC70 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDD14825B1FCC800C0CC70 /* Button.swift */; };
 		17EDD14C25B1FFF600C0CC70 /* PairingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDD14B25B1FFF600C0CC70 /* PairingViewController.swift */; };
@@ -76,7 +75,6 @@
 		176299722582F70400255C6F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1784D31425ACBB7C00031AF5 /* DetailsQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsQuoteView.swift; sourceTree = "<group>"; };
 		17A3DE2A25B9F9200031F11E /* FeedbackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackManager.swift; sourceTree = "<group>"; };
-		17B0169F258C01980075307C /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		17B016AC258C076B0075307C /* WineCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineCategoryView.swift; sourceTree = "<group>"; };
 		17EDD14825B1FCC800C0CC70 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		17EDD14B25B1FFF600C0CC70 /* PairingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingViewController.swift; sourceTree = "<group>"; };
@@ -223,7 +221,6 @@
 				174429F92582EF450040F0C2 /* Info.plist */,
 				176299642582F3FE00255C6F /* Config.swift */,
 				174429F42582EF450040F0C2 /* Assets.xcassets */,
-				17B016A2258C019E0075307C /* Extensions */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -292,14 +289,6 @@
 				17A3DE2A25B9F9200031F11E /* FeedbackManager.swift */,
 			);
 			path = Manager;
-			sourceTree = "<group>";
-		};
-		17B016A2258C019E0075307C /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				17B0169F258C01980075307C /* StringExtensions.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		17EDD15025B2004A00C0CC70 /* Pairing */ = {
@@ -525,7 +514,6 @@
 				17F11E40258396AF00854FC2 /* APIService.swift in Sources */,
 				172BF5D1258BFEEE00D65867 /* WineCategoryCellViewModel.swift in Sources */,
 				174F0D3225B2185000FC105F /* PairingViewDelegate.swift in Sources */,
-				17B016A0258C01980075307C /* StringExtensions.swift in Sources */,
 				17B016AD258C076B0075307C /* WineCategoryView.swift in Sources */,
 				17EDD15925B200A800C0CC70 /* PairingEmptyResultsView.swift in Sources */,
 				17EDD15225B2006A00C0CC70 /* PairingView.swift in Sources */,
