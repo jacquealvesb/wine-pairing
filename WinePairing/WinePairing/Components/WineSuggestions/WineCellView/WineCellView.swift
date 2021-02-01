@@ -29,9 +29,16 @@ final class WineCellView: UITableViewCell {
         let view = UIImageView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
-        view.layer.cornerRadius = 20
         view.contentMode = .scaleAspectFit
+        
+        view.layer.cornerRadius = 20
         view.clipsToBounds = true
+        view.layer.masksToBounds = false
+        view.layer.shadowRadius = 4
+        view.layer.shadowOpacity = 0.25
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 4)
+        
         return view
     }()
     
@@ -133,7 +140,7 @@ extension WineCellView: ViewCode {
     func setupConstraints() {
         wineImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16).isActive = true
         wineImageView.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -16).isActive = true
-        wineImageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        wineImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4).isActive = true
         wineImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3).isActive = true
         wineImageView.heightAnchor.constraint(equalTo: wineImageView.widthAnchor).isActive = true
         

@@ -151,7 +151,7 @@ extension PairingResultsView: ViewCode {
         suggestionsList.topAnchor.constraint(equalTo: suggestionsHeadline.bottomAnchor, constant: 8).isActive = true
         suggestionsList.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         suggestionsList.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        suggestionsList.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
+        suggestionsList.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
     func setupAdditionalConfiguration() {

@@ -26,19 +26,25 @@ final class PairingView: UIView {
     // MARK: - Views
     
     lazy var closeButton: Button = {
-         let view = Button(frame: .zero)
-         let image = UIImage(systemName: "chevron.compact.down",
-                             withConfiguration: UIImage.SymbolConfiguration(weight: .bold))?
-             .withTintColor(Colors.button, renderingMode: .alwaysOriginal)
+        let view = Button(frame: .zero)
+        let image = UIImage(systemName: "chevron.compact.down",
+                            withConfiguration: UIImage.SymbolConfiguration(weight: .bold))?
+            .withTintColor(Colors.button, renderingMode: .alwaysOriginal)
 
-         view.contentVerticalAlignment = .fill
-         view.contentHorizontalAlignment = .fill
-         view.setImage(image, for: .normal)
-         view.imageView?.contentMode = .scaleAspectFit
-         view.accessibilityLabel = "Close"
-         view.translatesAutoresizingMaskIntoConstraints = false
-         return view
-     }()
+        view.contentVerticalAlignment = .fill
+        view.contentHorizontalAlignment = .fill
+        view.setImage(image, for: .normal)
+        view.imageView?.contentMode = .scaleAspectFit
+        view.accessibilityLabel = "Close"
+        view.translatesAutoresizingMaskIntoConstraints = false
+
+        view.layer.shadowRadius = 4
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.25
+        view.layer.shadowOffset = CGSize(width: 0, height: 4)
+        
+        return view
+    }()
     
     lazy var contentView: UIView = {
         let view = UIView(frame: .zero)
