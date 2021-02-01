@@ -24,13 +24,3 @@ extension WineCategoryView: UICollectionViewDataSource {
         return cell
     }
 }
-
-extension WineCategoryView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let viewModel = viewModel?.viewModel(for: indexPath) else {
-            fatalError("Could not find view model")
-        }
-
-        return viewModel.size(with: .systemFont(ofSize: UIFont.labelFontSize, weight: .regular))
-    }
-}

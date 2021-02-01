@@ -14,10 +14,4 @@ final class WineCategoryCellViewModel {
     init(category: String) {
         self.category = category
     }
-    
-    func size(with font: UIFont) -> CGSize {
-        let width = category.width(withConstrainedHeight: font.lineHeight, font: font)
-        
-        return CGSize(width: width + 16, height: font.lineHeight + 16)
-    }
 }
