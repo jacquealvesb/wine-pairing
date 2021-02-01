@@ -17,7 +17,9 @@ final class MainView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.text = "What are you eating?"
         view.textAlignment = .center
-        view.font = UIFont.boldSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .largeTitle).pointSize)
+        view.font = UIFontMetrics(forTextStyle: .title1).scaledFont(for: .systemFont(ofSize: UIFont.buttonFontSize*2, weight: .bold))
+        view.adjustsFontForContentSizeCategory = true
+        view.numberOfLines = 0
         return view
     }()
     
@@ -34,7 +36,7 @@ final class MainView: UIView {
     lazy var errorPopUp: PopTip = {
         let view = PopTip()
         view.shouldDismissOnTap = true
-        view.bubbleColor = Colors.filledStar
+        view.bubbleColor = Colors.errorPopUp
         view.accessibilityUserInputLabels = [""]
         view.isAccessibilityElement = true
         view.shouldGroupAccessibilityChildren = true

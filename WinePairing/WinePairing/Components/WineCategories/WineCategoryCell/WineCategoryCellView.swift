@@ -27,7 +27,7 @@ final class WineCategoryCellView: UICollectionViewCell {
     lazy var label: UILabel = {
         let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.font = .preferredFont(forTextStyle: .body)
+        view.font = .systemFont(ofSize: UIFont.labelFontSize, weight: .regular)
         view.textColor = .white
         view.textAlignment = .center
         return view
@@ -38,6 +38,7 @@ final class WineCategoryCellView: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+        setupLargeContentViewer()
     }
     
     required init?(coder: NSCoder) {
@@ -50,6 +51,11 @@ final class WineCategoryCellView: UICollectionViewCell {
         self.viewModel = viewModel
     }
     
+    private func setupLargeContentViewer() {
+        showsLargeContentViewer = true
+        addInteraction(UILargeContentViewerInteraction())
+    }
+    
     private func setColor(_ colorName: String?) {
         guard let colorName = colorName else { return }
         backgroundColor = UIColor(named: colorName) ?? .black
@@ -57,6 +63,7 @@ final class WineCategoryCellView: UICollectionViewCell {
     
     private func setText(_ text: String?) {
         label.text = text?.capitalized
+        largeContentTitle = text?.capitalized
     }
 }
 
@@ -76,5 +83,11 @@ extension WineCategoryCellView: ViewCode {
     
     func setupAdditionalConfiguration() {
         layer.cornerRadius = 18
+        clipsToBounds = true
+        layer.masksToBounds = false
+        layer.shadowRadius = 4
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.25
+        layer.shadowOffset = CGSize(width: 0, height: 4)
     }
 }

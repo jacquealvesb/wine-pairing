@@ -31,6 +31,6 @@ extension WineCategoryView: UICollectionViewDelegateFlowLayout {
             fatalError("Could not find view model")
         }
 
-        return viewModel.size(with: .preferredFont(forTextStyle: .body))
+        return viewModel.size(with: .systemFont(ofSize: UIFont.labelFontSize, weight: .regular))
     }
 }

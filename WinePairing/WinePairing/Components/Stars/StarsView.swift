@@ -23,7 +23,11 @@ class StarsView: UIStackView {
             guard let `self` = self else { return }
             
             self.clear()
-            types.forEach { type in self.addArrangedSubview(UIImageView(image: self.star(for: type))) }
+            types.forEach { type in
+                let imageView = UIImageView(image: self.star(for: type))
+                imageView.contentMode = .scaleAspectFit
+                self.addArrangedSubview(imageView)
+            }
         }
     }
     
@@ -36,7 +40,7 @@ class StarsView: UIStackView {
         let starImageName = imageName(for: type)
         let starColor = color(for: type)
         
-        image = UIImage(systemName: starImageName, withConfiguration: UIImage.SymbolConfiguration(textStyle: .headline))
+        image = UIImage(systemName: starImageName, withConfiguration: UIImage.SymbolConfiguration(pointSize: UIFont.buttonFontSize))
         image = image?.withTintColor(starColor, renderingMode: .alwaysOriginal)
         
         return image

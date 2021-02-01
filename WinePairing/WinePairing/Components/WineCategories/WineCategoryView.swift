@@ -23,6 +23,7 @@ final class WineCategoryView: UIView {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
+        view.clipsToBounds = false
         return view
     }()
     

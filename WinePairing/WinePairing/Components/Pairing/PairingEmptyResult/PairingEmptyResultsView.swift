@@ -16,6 +16,7 @@ final class PairingEmptyResultsView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.numberOfLines = 0
         view.font = .preferredFont(forTextStyle: .body)
+        view.adjustsFontForContentSizeCategory = true
         view.textAlignment = .center
         return view
     }()

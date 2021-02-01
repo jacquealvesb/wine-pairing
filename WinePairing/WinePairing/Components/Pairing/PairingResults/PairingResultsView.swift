@@ -30,6 +30,7 @@ final class PairingResultsView: UIView {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.font = .preferredFont(forTextStyle: .headline)
+        view.adjustsFontForContentSizeCategory = true
         view.text = "Top Picks"
         view.accessibilityTraits = .header
         return view
@@ -53,6 +54,7 @@ final class PairingResultsView: UIView {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.font = .preferredFont(forTextStyle: .headline)
+        view.adjustsFontForContentSizeCategory = true
         view.text = "Suggestions"
         view.accessibilityTraits = .header
         return view
@@ -149,7 +151,7 @@ extension PairingResultsView: ViewCode {
         suggestionsList.topAnchor.constraint(equalTo: suggestionsHeadline.bottomAnchor, constant: 8).isActive = true
         suggestionsList.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         suggestionsList.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        suggestionsList.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
+        suggestionsList.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
     func setupAdditionalConfiguration() {
