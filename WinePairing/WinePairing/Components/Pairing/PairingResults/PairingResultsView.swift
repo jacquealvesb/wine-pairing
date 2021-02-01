@@ -139,7 +139,6 @@ extension PairingResultsView: ViewCode {
         wineCategories.topAnchor.constraint(equalTo: topPicksHeadline.bottomAnchor, constant: 8).isActive = true
         wineCategories.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         wineCategories.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        wineCategories.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
         moreDetailsButton.topAnchor.constraint(equalTo: wineCategories.bottomAnchor, constant: 16).isActive = true
         moreDetailsButton.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true

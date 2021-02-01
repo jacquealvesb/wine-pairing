@@ -19,8 +19,8 @@ final class WineCategoryView: UIView {
     
     // MARK: - Viewa
     
-    lazy var collectionView: UICollectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    lazy var collectionView: SelfSizingCollectionView = {
+        let view = SelfSizingCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
         view.clipsToBounds = false
