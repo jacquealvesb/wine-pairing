@@ -43,7 +43,7 @@ final class PairingResultsView: UIView {
     }()
     
     lazy var moreDetailsButton: TextButton = {
-        let view = TextButton(text: "More Details", color: Colors.quotationMark)
+        let view = TextButton(text: "More Details", color: Colors.textButton)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.accessibilityUserInputLabels = ["More Details", "Details"]
         view.accessibilityHint = "Double tap to open"

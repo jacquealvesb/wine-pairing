@@ -62,7 +62,7 @@ final class DetailsQuoteView: UIView {
     }()
     
     lazy var closeButton: TextButton = {
-        let view = TextButton(text: "Close", color: Colors.quotationMark)
+        let view = TextButton(text: "Close", color: Colors.textButton)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

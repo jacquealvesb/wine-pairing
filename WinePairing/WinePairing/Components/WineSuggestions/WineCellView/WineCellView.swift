@@ -13,7 +13,7 @@ final class WineCellView: UITableViewCell {
     // MARK: - Constants
     
     static let reuseIdentifier = "WineCellView"
-    private let kWinePlaceholderImage = "winePlaceholder"
+    private let kWinePlaceholderImage = "wine_placeholder"
     
     // MARK: - Variables
     
@@ -146,11 +146,11 @@ extension WineCellView: ViewCode {
         
         titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: wineImageView.trailingAnchor, constant: 16).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4).isActive = true
         
         averageRatingSectionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4).isActive = true
         averageRatingSectionLabel.leadingAnchor.constraint(equalTo: wineImageView.trailingAnchor, constant: 16).isActive = true
-        averageRatingSectionLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        averageRatingSectionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4).isActive = true
         
         averageRatingLabel.topAnchor.constraint(equalTo: averageRatingSectionLabel.bottomAnchor, constant: 4).isActive = true
         averageRatingLabel.leadingAnchor.constraint(equalTo: wineImageView.trailingAnchor, constant: 16).isActive = true

@@ -118,6 +118,6 @@ extension MainView: ViewCode {
     }
     
     func setupAdditionalConfiguration() {
-        backgroundColor = Colors.quoteBackground
+        backgroundColor = Colors.background
     }
 }

@@ -124,6 +124,6 @@ extension PairingView: ViewCode {
     }
     
     func setupAdditionalConfiguration() {
-        backgroundColor = Colors.quoteBackground
+        backgroundColor = Colors.background
     }
 }
