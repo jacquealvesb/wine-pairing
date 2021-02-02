@@ -12,8 +12,10 @@ final class WineCellView: UITableViewCell {
     
     // MARK: - Constants
     
-    static let reuseIdentifier = "WineCellView"
-    private let kWinePlaceholderImage = "wine_placeholder"
+    static let reuseIdentifier: String = "WineCellView"
+    private let kWinePlaceholderImage: String = "wine_placeholder"
+    private let kMargin: CGFloat = 8
+    private let kImageWidthMultiplier: CGFloat = 0.3
     
     // MARK: - Variables
     
@@ -138,31 +140,32 @@ extension WineCellView: ViewCode {
     }
     
     func setupConstraints() {
-        wineImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16).isActive = true
-        wineImageView.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -16).isActive = true
-        wineImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4).isActive = true
-        wineImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3).isActive = true
+        wineImageView.topAnchor.constraint(equalTo: topAnchor, constant: kMargin).isActive = true
+        wineImageView.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -kMargin).isActive = true
+        wineImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: kMargin/2).isActive = true
+        wineImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: kImageWidthMultiplier).isActive = true
         wineImageView.heightAnchor.constraint(equalTo: wineImageView.widthAnchor).isActive = true
         
-        titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: wineImageView.trailingAnchor, constant: 16).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: kMargin).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: wineImageView.trailingAnchor, constant: kMargin*2).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -kMargin/2).isActive = true
         
-        averageRatingSectionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4).isActive = true
-        averageRatingSectionLabel.leadingAnchor.constraint(equalTo: wineImageView.trailingAnchor, constant: 16).isActive = true
-        averageRatingSectionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4).isActive = true
+        averageRatingSectionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: kMargin/2).isActive = true
+        averageRatingSectionLabel.leadingAnchor.constraint(equalTo: wineImageView.trailingAnchor, constant: kMargin*2).isActive = true
+        averageRatingSectionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -kMargin/2).isActive = true
         
-        averageRatingLabel.topAnchor.constraint(equalTo: averageRatingSectionLabel.bottomAnchor, constant: 4).isActive = true
-        averageRatingLabel.leadingAnchor.constraint(equalTo: wineImageView.trailingAnchor, constant: 16).isActive = true
+        averageRatingLabel.topAnchor.constraint(equalTo: averageRatingSectionLabel.bottomAnchor, constant: kMargin/2).isActive = true
+        averageRatingLabel.leadingAnchor.constraint(equalTo: wineImageView.trailingAnchor, constant: kMargin*2).isActive = true
         averageRatingLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: .horizontal)
         
-        starsStackView.topAnchor.constraint(equalTo: averageRatingSectionLabel.bottomAnchor, constant: 4).isActive = true
-        starsStackView.leadingAnchor.constraint(equalTo: averageRatingLabel.trailingAnchor, constant: 8).isActive = true
-        starsStackView.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -8).isActive = true
+        starsStackView.topAnchor.constraint(equalTo: averageRatingSectionLabel.bottomAnchor, constant: kMargin/2).isActive = true
+        starsStackView.leadingAnchor.constraint(equalTo: averageRatingLabel.trailingAnchor, constant: kMargin).isActive = true
+        starsStackView.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -kMargin).isActive = true
         
         ratingCountLabel.topAnchor.constraint(equalTo: starsStackView.bottomAnchor).isActive = true
-        ratingCountLabel.leadingAnchor.constraint(equalTo: averageRatingLabel.trailingAnchor, constant: 8).isActive = true
-        ratingCountLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -16).isActive = true
+        ratingCountLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -kMargin*2).isActive = true
+        ratingCountLabel.leadingAnchor.constraint(equalTo: averageRatingLabel.trailingAnchor, constant: kMargin).isActive = true
+        
     }
     
     func setupAdditionalConfiguration() {

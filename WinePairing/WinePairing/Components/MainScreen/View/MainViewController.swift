@@ -9,15 +9,15 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    // MARK: - Views
-    
-    let contentView = MainView(frame: UIScreen.main.bounds)
-    
     // MARK: - Variables
     
     var dataProvider: DataProvidable?
     
-    // MARK: - Life cycle
+    // MARK: - Views
+    
+    let contentView = MainView(frame: UIScreen.main.bounds)
+    
+    // MARK: - Life Cycle
     
     override func loadView() {
         self.view = contentView
@@ -31,7 +31,7 @@ class MainViewController: UIViewController {
         setupSeachBar()
     }
     
-    // MARK: - Setups
+    // MARK: - Setup
     
     private func setupDataProvider() {
         dataProvider = DataProvider(service: AlmofireService.shared, apiKey: kSpoonacularApiKey)

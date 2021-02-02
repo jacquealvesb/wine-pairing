@@ -9,10 +9,6 @@ import UIKit
 
 class PairingViewController: UIViewController {
     
-    // MARK: - Views
-    
-    let contentView: PairingView = PairingView(frame: UIScreen.main.bounds)
-    
     // MARK: - Variables
     
     var viewModel: PairingViewModel? {
@@ -22,7 +18,11 @@ class PairingViewController: UIViewController {
         }
     }
     
-    // MARK: - Life cycle
+    // MARK: - Views
+    
+    let contentView: PairingView = PairingView(frame: UIScreen.main.bounds)
+    
+    // MARK: - Life Cycle
     
     override func loadView() {
         self.view = contentView
@@ -34,7 +34,7 @@ class PairingViewController: UIViewController {
         setupNotifications()
     }
     
-    // MARK: - Setups
+    // MARK: - Setup
     
     private func setupNotifications() {
         NotificationCenter.default.addObserver(self,
@@ -43,7 +43,7 @@ class PairingViewController: UIViewController {
                                                object: nil)
     }
     
-    // MARK: - Share functions
+    // MARK: - Share Functions
     
     @objc func shareWineButtonPressed(notification: Notification) {
         if let wine = notification.object as? Wine {

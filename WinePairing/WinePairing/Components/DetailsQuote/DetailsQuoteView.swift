@@ -9,7 +9,12 @@ import UIKit
 
 final class DetailsQuoteView: UIView {
     
-    // MARK: - Variables
+    // MARK: - Constants
+    
+    private let kMargin: CGFloat = 16
+    private let kCardCornerRadius: CGFloat = 40
+    
+    // MARK: - Views
     
     lazy var blurEffectView: UIVisualEffectView = {
         let blurEffect = UIBlurEffect(style: .prominent)
@@ -24,7 +29,7 @@ final class DetailsQuoteView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isAccessibilityElement = false
         view.backgroundColor = Colors.quoteBackground
-        view.layer.cornerRadius = 40
+        view.layer.cornerRadius = kCardCornerRadius
         return view
     }()
     
@@ -67,7 +72,7 @@ final class DetailsQuoteView: UIView {
         return view
     }()
     
-    // MARK: - Life cycle
+    // MARK: - Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -78,7 +83,7 @@ final class DetailsQuoteView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Setups
+    // MARK: - Setup
     
     func setup(with text: String) {
         detailsLabel.text = text
@@ -98,26 +103,26 @@ extension DetailsQuoteView: ViewCode {
     }
     
     func setupConstraints() {
-        cardView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
-        cardView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
-        cardView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16).isActive = true
-        cardView.bottomAnchor.constraint(lessThanOrEqualTo: safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
+        cardView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: kMargin).isActive = true
+        cardView.bottomAnchor.constraint(lessThanOrEqualTo: safeAreaLayoutGuide.bottomAnchor, constant: -kMargin).isActive = true
+        cardView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: kMargin).isActive = true
+        cardView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -kMargin).isActive = true
         
-        quotationMarkRight.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 16).isActive = true
-        quotationMarkRight.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 16).isActive = true
+        quotationMarkRight.topAnchor.constraint(equalTo: cardView.topAnchor, constant: kMargin).isActive = true
+        quotationMarkRight.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: kMargin).isActive = true
         
         detailsLabel.topAnchor.constraint(equalTo: quotationMarkRight.bottomAnchor).isActive = true
-        detailsLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 16).isActive = true
-        detailsLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -16).isActive = true
-        detailsLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 10).isActive = true
+        detailsLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: kMargin).isActive = true
+        detailsLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -kMargin).isActive = true
+        detailsLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: kMargin).isActive = true
         
-        quotationMarkLeft.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -16).isActive = true
         quotationMarkLeft.topAnchor.constraint(equalTo: detailsLabel.bottomAnchor).isActive = true
+        quotationMarkLeft.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -kMargin).isActive = true
         
-        closeButton.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 16).isActive = true
-        closeButton.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -16).isActive = true
-        closeButton.topAnchor.constraint(equalTo: quotationMarkLeft.bottomAnchor, constant: 8).isActive = true
-        closeButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -24).isActive = true
+        closeButton.topAnchor.constraint(equalTo: quotationMarkLeft.bottomAnchor).isActive = true
+        closeButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -kMargin).isActive = true
+        closeButton.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: kMargin).isActive = true
+        closeButton.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -kMargin).isActive = true
     }
     
     func setupAdditionalConfiguration() {

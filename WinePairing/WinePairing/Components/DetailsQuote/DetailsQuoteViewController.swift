@@ -8,8 +8,8 @@
 import UIKit
 
 class DetailsQuoteViewController: UIViewController {
-
-    let contentView = DetailsQuoteView(frame: UIScreen.main.bounds)
+    
+    // MARK: - Variables
     
     var text: String? {
         didSet {
@@ -19,6 +19,12 @@ class DetailsQuoteViewController: UIViewController {
     }
     
     var didDismiss: (() -> Void)?
+    
+    // MARK: - Views
+
+    let contentView = DetailsQuoteView(frame: UIScreen.main.bounds)
+    
+    // MARK: - Life Cycle
     
     override func loadView() {
         self.view = contentView

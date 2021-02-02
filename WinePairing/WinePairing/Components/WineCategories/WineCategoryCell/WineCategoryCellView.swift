@@ -11,7 +11,8 @@ final class WineCategoryCellView: UICollectionViewCell {
     
     // MARK: - Constants
     
-    static let reuseIdentifier = "WineCategoryCellView"
+    static let reuseIdentifier: String = "WineCategoryCellView"
+    private let kMargin: CGFloat = 8
     
     // MARK: - Variables
     
@@ -75,10 +76,10 @@ extension WineCategoryCellView: ViewCode {
     }
     
     func setupConstraints() {
-        label.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
-        label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
-        label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
-        label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
+        label.topAnchor.constraint(equalTo: topAnchor, constant: kMargin).isActive = true
+        label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -kMargin).isActive = true
+        label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: kMargin).isActive = true
+        label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -kMargin).isActive = true
     }
     
     func setupAdditionalConfiguration() {
