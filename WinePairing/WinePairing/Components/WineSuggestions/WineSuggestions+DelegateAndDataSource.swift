@@ -35,8 +35,8 @@ extension WineSuggestionsView: UITableViewDataSource, UITableViewDelegate {
             self.shareItem(at: indexPath)
             completion(true)
         }
-        shareAction.image = UIImage(systemName: "square.and.arrow.up")
-        shareAction.backgroundColor = Colors.button
+        shareAction.image = UIImage(systemName: Constants.Images.share)
+        shareAction.backgroundColor = Constants.Colors.button
         
         return UISwipeActionsConfiguration(actions: [shareAction])
     }

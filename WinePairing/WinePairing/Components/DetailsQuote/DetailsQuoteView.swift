@@ -28,7 +28,7 @@ final class DetailsQuoteView: UIView {
         let view = UIView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isAccessibilityElement = false
-        view.backgroundColor = Colors.quoteBackground
+        view.backgroundColor = Constants.Colors.quoteBackground
         view.applyRoundedCorner(radius: kCardCornerRadius)
         return view
     }()
@@ -37,7 +37,7 @@ final class DetailsQuoteView: UIView {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.text = "\""
-        view.textColor = Colors.quotationMark
+        view.textColor = Constants.Colors.quotationMark
         view.font = .italicSystemFont(ofSize: 70)
         view.isAccessibilityElement = false
         return view
@@ -47,7 +47,7 @@ final class DetailsQuoteView: UIView {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.text = "\""
-        view.textColor = Colors.quotationMark
+        view.textColor = Constants.Colors.quotationMark
         view.font = .italicSystemFont(ofSize: 70)
         view.isAccessibilityElement = false
         return view
@@ -67,7 +67,7 @@ final class DetailsQuoteView: UIView {
     }()
     
     lazy var closeButton: TextButton = {
-        let view = TextButton(text: "Close", color: Colors.textButton)
+        let view = TextButton(text: "Close", color: Constants.Colors.textButton)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

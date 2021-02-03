@@ -40,7 +40,7 @@ final class MainView: UIView {
     lazy var errorPopUp: PopTip = {
         let view = PopTip()
         view.shouldDismissOnTap = true
-        view.bubbleColor = Colors.errorPopUp
+        view.bubbleColor = Constants.Colors.errorPopUp
         view.accessibilityUserInputLabels = [""]
         view.isAccessibilityElement = true
         view.shouldGroupAccessibilityChildren = true
@@ -48,7 +48,7 @@ final class MainView: UIView {
     }()
     
     lazy var pairButton: RoundButton = {
-        let view = RoundButton(text: "Pair With Wine", color: Colors.button)
+        let view = RoundButton(text: "Pair With Wine", color: Constants.Colors.button)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.accessibilityUserInputLabels = ["Pair", "Pair With Wine"]
         return view
@@ -124,6 +124,6 @@ extension MainView: ViewCode {
     }
     
     func setupAdditionalConfiguration() {
-        backgroundColor = Colors.background
+        backgroundColor = Constants.Colors.background
     }
 }

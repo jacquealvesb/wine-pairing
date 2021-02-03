@@ -13,7 +13,6 @@ final class WineCellView: UITableViewCell {
     // MARK: - Constants
     
     static let reuseIdentifier: String = "WineCellView"
-    private let kWinePlaceholderImage: String = "wine_placeholder"
     private let kMargin: CGFloat = 8
     private let kImageWidthMultiplier: CGFloat = 0.3
     
@@ -65,7 +64,7 @@ final class WineCellView: UITableViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.font = UIFontMetrics(forTextStyle: .largeTitle).scaledFont(for: .systemFont(ofSize: UIFont.buttonFontSize*2, weight: .bold))
         view.adjustsFontForContentSizeCategory = true
-        view.textColor = Colors.averageRate
+        view.textColor = Constants.Colors.averageRate
         return view
     }()
     
@@ -112,7 +111,7 @@ final class WineCellView: UITableViewCell {
         starsStackView.setup(with: viewModel.stars)
         ratingCountLabel.text = viewModel.ratingCount
         wineImageView.kf.setImage(with: viewModel.imageURL,
-                                  placeholder: UIImage(named: kWinePlaceholderImage))
+                                  placeholder: UIImage(named: Constants.Images.winePlaceholder))
         
         setupAccessibility()
     }

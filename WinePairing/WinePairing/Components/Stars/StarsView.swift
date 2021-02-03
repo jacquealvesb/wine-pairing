@@ -17,9 +17,9 @@ class StarsView: UIStackView {
     
     // MARK: - Constants
     
-    private let kFillStarImageName: String = "star.fill"
-    private let kHalfStarImageName: String = "star.lefthalf.fill"
-    private let kEmptyStarImageName: String = "star.fill"
+    private let kFillStarImageName: String = Constants.Images.fillStar
+    private let kHalfStarImageName: String = Constants.Images.halfStar
+    private let kEmptyStarImageName: String = Constants.Images.emptyStar
     
     // MARK: - Setup
     
@@ -73,11 +73,11 @@ class StarsView: UIStackView {
         
         switch type {
         case .fill:
-            imageColor = Colors.filledStar
+            imageColor = Constants.Colors.filledStar
         case .half:
-            imageColor = Colors.halfStar
+            imageColor = Constants.Colors.halfStar
         case .empty:
-            imageColor = Colors.emptyStar
+            imageColor = Constants.Colors.emptyStar
         }
         
         return imageColor

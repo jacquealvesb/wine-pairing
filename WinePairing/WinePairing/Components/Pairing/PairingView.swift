@@ -33,9 +33,9 @@ final class PairingView: UIView {
     
     lazy var closeButton: Button = {
         let view = Button(frame: .zero)
-        let image = UIImage(systemName: "chevron.compact.down",
+        let image = UIImage(systemName: Constants.Images.downArrow,
                             withConfiguration: UIImage.SymbolConfiguration(weight: .bold))?
-            .withTintColor(Colors.button, renderingMode: .alwaysOriginal)
+            .withTintColor(Constants.Colors.button, renderingMode: .alwaysOriginal)
 
         view.contentVerticalAlignment = .fill
         view.contentHorizontalAlignment = .fill
@@ -129,6 +129,6 @@ extension PairingView: ViewCode {
     }
     
     func setupAdditionalConfiguration() {
-        backgroundColor = Colors.background
+        backgroundColor = Constants.Colors.background
     }
 }
