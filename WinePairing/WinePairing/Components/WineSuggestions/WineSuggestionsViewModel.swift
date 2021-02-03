@@ -25,6 +25,6 @@ final class WineSuggestionsViewModel {
     
     func shareWine(at indexPath: IndexPath) {
         guard indexPath.row < winesCount else { return }
-        NotificationCenter.default.post(name: Notification.Name("shareWine"), object: wines[indexPath.row])
+        NotificationCenter.default.post(name: Notification.Name.didPressShareWine, object: wines[indexPath.row])
     }
 }

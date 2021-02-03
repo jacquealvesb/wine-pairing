@@ -36,7 +36,7 @@ class DetailsQuoteViewController: UIViewController {
         contentView.closeButton.action = { [weak self] in
             guard let `self` = self else { return }
             self.dismiss(animated: true) {
-                NotificationCenter.default.post(name: Notification.Name("didDismissMoreDetails"), object: nil)
+                NotificationCenter.default.post(name: Notification.Name.didDismissMoreDetails, object: nil)
             }
         }
     }

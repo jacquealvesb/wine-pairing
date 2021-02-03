@@ -115,7 +115,7 @@ final class PairingResultsView: UIView {
     private func setupNotifications() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(focusMoreDetailsButton),
-                                               name: Notification.Name("didDismissMoreDetails"),
+                                               name: Notification.Name.didDismissMoreDetails,
                                                object: nil)
     }
     

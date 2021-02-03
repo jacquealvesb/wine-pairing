@@ -20,6 +20,7 @@
 		172BF5CE258BFE6700D65867 /* WineCategoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172BF5CD258BFE6700D65867 /* WineCategoryCellView.swift */; };
 		172BF5D1258BFEEE00D65867 /* WineCategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172BF5D0258BFEEE00D65867 /* WineCategoryCellViewModel.swift */; };
 		173251FE25CAF3A600B8E813 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173251FD25CAF3A600B8E813 /* UIViewExtension.swift */; };
+		1732520125CB0E9F00B8E813 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732520025CB0E9F00B8E813 /* NotificationNameExtension.swift */; };
 		17350EDF25A3C6C40010EB88 /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17350EDE25A3C6C40010EB88 /* StarsView.swift */; };
 		174429EC2582EF450040F0C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174429EB2582EF450040F0C2 /* AppDelegate.swift */; };
 		174429EE2582EF450040F0C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174429ED2582EF450040F0C2 /* SceneDelegate.swift */; };
@@ -64,6 +65,7 @@
 		172BF5CD258BFE6700D65867 /* WineCategoryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineCategoryCellView.swift; sourceTree = "<group>"; };
 		172BF5D0258BFEEE00D65867 /* WineCategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineCategoryCellViewModel.swift; sourceTree = "<group>"; };
 		173251FD25CAF3A600B8E813 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = ../../../../../../Documents/UIViewExtension.swift; sourceTree = "<group>"; };
+		1732520025CB0E9F00B8E813 /* NotificationNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
 		17350EDE25A3C6C40010EB88 /* StarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsView.swift; sourceTree = "<group>"; };
 		174429E82582EF450040F0C2 /* WinePairing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WinePairing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		174429EB2582EF450040F0C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 		173251FC25CAF38E00B8E813 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1732520025CB0E9F00B8E813 /* NotificationNameExtension.swift */,
 				173251FD25CAF3A600B8E813 /* UIViewExtension.swift */,
 			);
 			path = Extensions;
@@ -515,6 +518,7 @@
 				17EDD15525B2007400C0CC70 /* PairingViewModel.swift in Sources */,
 				17F11E44258399D900854FC2 /* AlmofireService.swift in Sources */,
 				174429F02582EF450040F0C2 /* MainViewController.swift in Sources */,
+				1732520125CB0E9F00B8E813 /* NotificationNameExtension.swift in Sources */,
 				171BFB9C258C2EB900F73BCF /* WineSuggestionsView.swift in Sources */,
 				1729EF4425AF6BB600221092 /* PairingResultsViewModel.swift in Sources */,
 				171BFB8F258C2C4100F73BCF /* WineCellView.swift in Sources */,

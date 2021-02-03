@@ -39,7 +39,7 @@ class PairingViewController: UIViewController {
     private func setupNotifications() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(shareWineButtonPressed(notification:)),
-                                               name: Notification.Name("shareWine"),
+                                               name: Notification.Name.didPressShareWine,
                                                object: nil)
     }
     
