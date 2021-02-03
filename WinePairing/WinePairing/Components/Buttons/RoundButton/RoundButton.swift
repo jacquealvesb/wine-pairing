@@ -93,12 +93,8 @@ extension RoundButton: ViewCode {
     func setupAdditionalConfiguration() {
         backgroundColor = color
         contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        layer.cornerRadius = 22
-        clipsToBounds = true
-        layer.masksToBounds = false
-        layer.shadowRadius = 4
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.25
-        layer.shadowOffset = CGSize(width: 0, height: 4)
+        
+        applyRoundedCorner(radius: 22)
+        applyShadow()
     }
 }

@@ -83,12 +83,7 @@ extension WineCategoryCellView: ViewCode {
     }
     
     func setupAdditionalConfiguration() {
-        layer.cornerRadius = 18
-        clipsToBounds = true
-        layer.masksToBounds = false
-        layer.shadowRadius = 4
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.25
-        layer.shadowOffset = CGSize(width: 0, height: 4)
+        applyRoundedCorner(radius: 18)
+        applyShadow()
     }
 }

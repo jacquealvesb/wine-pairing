@@ -33,13 +33,8 @@ final class WineCellView: UITableViewCell {
         view.backgroundColor = .white
         view.contentMode = .scaleAspectFit
         
-        view.layer.cornerRadius = 20
-        view.clipsToBounds = true
-        view.layer.masksToBounds = false
-        view.layer.shadowRadius = 4
-        view.layer.shadowOpacity = 0.25
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = CGSize(width: 0, height: 4)
+        view.applyRoundedCorner()
+        view.applyShadow()
         
         return view
     }()

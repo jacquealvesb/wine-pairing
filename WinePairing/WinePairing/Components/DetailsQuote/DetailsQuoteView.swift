@@ -29,7 +29,7 @@ final class DetailsQuoteView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isAccessibilityElement = false
         view.backgroundColor = Colors.quoteBackground
-        view.layer.cornerRadius = kCardCornerRadius
+        view.applyRoundedCorner(radius: kCardCornerRadius)
         return view
     }()
     

@@ -44,10 +44,7 @@ final class PairingView: UIView {
         view.accessibilityLabel = "Close"
         view.translatesAutoresizingMaskIntoConstraints = false
 
-        view.layer.shadowRadius = 4
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOpacity = 0.25
-        view.layer.shadowOffset = CGSize(width: 0, height: 4)
+        view.applyShadow()
         
         return view
     }()

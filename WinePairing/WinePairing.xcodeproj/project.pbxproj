@@ -19,6 +19,7 @@
 		1729EF4425AF6BB600221092 /* PairingResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1729EF4325AF6BB600221092 /* PairingResultsViewModel.swift */; };
 		172BF5CE258BFE6700D65867 /* WineCategoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172BF5CD258BFE6700D65867 /* WineCategoryCellView.swift */; };
 		172BF5D1258BFEEE00D65867 /* WineCategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172BF5D0258BFEEE00D65867 /* WineCategoryCellViewModel.swift */; };
+		173251FE25CAF3A600B8E813 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173251FD25CAF3A600B8E813 /* UIViewExtension.swift */; };
 		17350EDF25A3C6C40010EB88 /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17350EDE25A3C6C40010EB88 /* StarsView.swift */; };
 		174429EC2582EF450040F0C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174429EB2582EF450040F0C2 /* AppDelegate.swift */; };
 		174429EE2582EF450040F0C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174429ED2582EF450040F0C2 /* SceneDelegate.swift */; };
@@ -62,6 +63,7 @@
 		1729EF4325AF6BB600221092 /* PairingResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingResultsViewModel.swift; sourceTree = "<group>"; };
 		172BF5CD258BFE6700D65867 /* WineCategoryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineCategoryCellView.swift; sourceTree = "<group>"; };
 		172BF5D0258BFEEE00D65867 /* WineCategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineCategoryCellViewModel.swift; sourceTree = "<group>"; };
+		173251FD25CAF3A600B8E813 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = ../../../../../../Documents/UIViewExtension.swift; sourceTree = "<group>"; };
 		17350EDE25A3C6C40010EB88 /* StarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsView.swift; sourceTree = "<group>"; };
 		174429E82582EF450040F0C2 /* WinePairing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WinePairing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		174429EB2582EF450040F0C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +177,14 @@
 			path = WineCategoryCell;
 			sourceTree = "<group>";
 		};
+		173251FC25CAF38E00B8E813 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				173251FD25CAF3A600B8E813 /* UIViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		17350EDD25A3C6A40010EB88 /* Stars */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +233,7 @@
 				174429F92582EF450040F0C2 /* Info.plist */,
 				176299642582F3FE00255C6F /* Config.swift */,
 				174429F42582EF450040F0C2 /* Assets.xcassets */,
+				173251FC25CAF38E00B8E813 /* Extensions */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -530,6 +541,7 @@
 				176299692582F4DF00255C6F /* ViewCode.swift in Sources */,
 				1784D31525ACBB7C00031AF5 /* DetailsQuoteView.swift in Sources */,
 				176299652582F3FE00255C6F /* Config.swift in Sources */,
+				173251FE25CAF3A600B8E813 /* UIViewExtension.swift in Sources */,
 				17EDD14925B1FCC800C0CC70 /* Button.swift in Sources */,
 				174429EC2582EF450040F0C2 /* AppDelegate.swift in Sources */,
 				171BFB82258C091800F73BCF /* WineCategoryView+DelegateAndDataSource.swift in Sources */,
