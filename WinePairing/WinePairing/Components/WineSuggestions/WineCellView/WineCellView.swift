@@ -45,6 +45,7 @@ final class WineCellView: UITableViewCell {
         view.font = .preferredFont(forTextStyle: .headline)
         view.adjustsFontForContentSizeCategory = true
         view.numberOfLines = 0
+        view.lineBreakMode = .byWordWrapping
         return view
     }()
     
