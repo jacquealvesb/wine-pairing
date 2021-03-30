@@ -9,6 +9,18 @@ import UIKit
 
 final class PairingEmptyResultsView: UIView {
     
+    // MARK: - Constants
+    
+    private let kMargin: CGFloat = 16
+    
+    // MARK: - Variables
+    
+    private var searchedText: String {
+        didSet {
+            updateLabel(with: searchedText)
+        }
+    }
+    
     // MARK: - Views
     
     lazy var label: UILabel = {
@@ -21,15 +33,7 @@ final class PairingEmptyResultsView: UIView {
         return view
     }()
     
-    // MARK: - Variables
-    
-    private var searchedText: String {
-        didSet {
-            updateLabel(with: searchedText)
-        }
-    }
-    
-    // MARK: - Life cycle
+    // MARK: - Life Cycle
     
     init(searchedText: String) {
         self.searchedText = searchedText
@@ -48,14 +52,16 @@ final class PairingEmptyResultsView: UIView {
     }
 }
 
+// MARK: - View Code
+
 extension PairingEmptyResultsView: ViewCode {
     func buildViewHierarchy() {
         addSubview(label)
     }
     
     func setupConstraints() {
-        label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
-        label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
+        label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: kMargin).isActive = true
+        label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -kMargin).isActive = true
         label.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
 }

@@ -8,8 +8,8 @@
 import UIKit
 
 class DetailsQuoteViewController: UIViewController {
-
-    let contentView = DetailsQuoteView(frame: UIScreen.main.bounds)
+    
+    // MARK: - Variables
     
     var text: String? {
         didSet {
@@ -19,6 +19,12 @@ class DetailsQuoteViewController: UIViewController {
     }
     
     var didDismiss: (() -> Void)?
+    
+    // MARK: - Views
+
+    let contentView = DetailsQuoteView(frame: UIScreen.main.bounds)
+    
+    // MARK: - Life Cycle
     
     override func loadView() {
         self.view = contentView
@@ -30,7 +36,7 @@ class DetailsQuoteViewController: UIViewController {
         contentView.closeButton.action = { [weak self] in
             guard let `self` = self else { return }
             self.dismiss(animated: true) {
-                NotificationCenter.default.post(name: Notification.Name("didDismissMoreDetails"), object: nil)
+                NotificationCenter.default.post(name: Notification.Name.didDismissMoreDetails, object: nil)
             }
         }
     }

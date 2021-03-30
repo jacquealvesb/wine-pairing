@@ -9,6 +9,10 @@ import UIKit
 
 final class WineCategoryView: UIView {
     
+    // MARK: - Constants
+    
+    private let kMargin: CGFloat = 8
+    
     // MARK: - Variables
     
     private(set) var viewModel: WineCategoryViewModel? {
@@ -17,7 +21,7 @@ final class WineCategoryView: UIView {
         }
     }
     
-    // MARK: - Viewa
+    // MARK: - Views
     
     lazy var collectionView: SelfSizingCollectionView = {
         let view = SelfSizingCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -27,7 +31,7 @@ final class WineCategoryView: UIView {
         return view
     }()
     
-    // MARK: - Life cycle
+    // MARK: - Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -73,9 +77,9 @@ extension WineCategoryView: ViewCode {
     }
     
     func setupConstraints() {
-        collectionView.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
+        collectionView.topAnchor.constraint(equalTo: topAnchor, constant: kMargin).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -kMargin).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: kMargin).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -kMargin).isActive = true
     }
 }

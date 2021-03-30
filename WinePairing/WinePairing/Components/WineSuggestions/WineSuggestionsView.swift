@@ -9,6 +9,10 @@ import UIKit
 
 final class WineSuggestionsView: UIView {
     
+    // MARK: - Constants
+    
+    private let kMargin: CGFloat = 8
+    
     // MARK: - Variables
     
     private(set) var viewModel: WineSuggestionsViewModel? {
@@ -17,7 +21,7 @@ final class WineSuggestionsView: UIView {
         }
     }
     
-    // MARK: - Viewa
+    // MARK: - Views
     
     lazy var tableView: UITableView = {
         let view = UITableView(frame: .zero)
@@ -78,9 +82,9 @@ extension WineSuggestionsView: ViewCode {
     }
     
     func setupConstraints() {
-        tableView.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
+        tableView.topAnchor.constraint(equalTo: topAnchor, constant: kMargin).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -kMargin).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: kMargin).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -kMargin).isActive = true
     }
 }

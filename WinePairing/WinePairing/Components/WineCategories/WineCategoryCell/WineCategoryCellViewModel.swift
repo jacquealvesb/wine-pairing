@@ -9,7 +9,7 @@ import UIKit
 
 final class WineCategoryCellViewModel {
     let category: String
-    let color: String = "wineCategoryColor"
+    let color: String = "wine_category"
     
     init(category: String) {
         self.category = category

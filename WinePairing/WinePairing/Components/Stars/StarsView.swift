@@ -14,9 +14,14 @@ enum StarType {
 }
 
 class StarsView: UIStackView {
-    private let kFillStarImageName = "star.fill"
-    private let kHalfStarImageName = "star.lefthalf.fill"
-    private let kEmptyStarImageName = "star.fill"
+    
+    // MARK: - Constants
+    
+    private let kFillStarImageName: String = Constants.Images.fillStar
+    private let kHalfStarImageName: String = Constants.Images.halfStar
+    private let kEmptyStarImageName: String = Constants.Images.emptyStar
+    
+    // MARK: - Setup
     
     func setup(with types: [StarType]) {
         DispatchQueue.main.async { [weak self] in
@@ -30,6 +35,8 @@ class StarsView: UIStackView {
             }
         }
     }
+    
+    // MARK: - Helpers
     
     private func clear() {
         arrangedSubviews.forEach { $0.removeFromSuperview() }
@@ -66,11 +73,11 @@ class StarsView: UIStackView {
         
         switch type {
         case .fill:
-            imageColor = Colors.filledStar
+            imageColor = Constants.Colors.filledStar
         case .half:
-            imageColor = Colors.halfStar
+            imageColor = Constants.Colors.halfStar
         case .empty:
-            imageColor = Colors.emptyStar
+            imageColor = Constants.Colors.emptyStar
         }
         
         return imageColor

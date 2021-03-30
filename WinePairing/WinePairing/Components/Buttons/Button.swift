@@ -13,7 +13,7 @@ class Button: UIButton {
     
     var action: (() -> Void)?
     
-    // MARK: - Life cycle
+    // MARK: - Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)

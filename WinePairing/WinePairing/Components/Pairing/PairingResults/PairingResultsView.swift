@@ -9,6 +9,10 @@ import UIKit
 
 final class PairingResultsView: UIView {
     
+    // MARK: - Constants
+    
+    private let kMargin: CGFloat = 16
+    
     // MARK: - Variables
     
     private var viewModel: PairingResultsViewModel? {
@@ -43,7 +47,7 @@ final class PairingResultsView: UIView {
     }()
     
     lazy var moreDetailsButton: TextButton = {
-        let view = TextButton(text: "More Details", color: Colors.quotationMark)
+        let view = TextButton(text: "More Details", color: Constants.Colors.textButton)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.accessibilityUserInputLabels = ["More Details", "Details"]
         view.accessibilityHint = "Double tap to open"
@@ -85,7 +89,7 @@ final class PairingResultsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Setups
+    // MARK: - Setup
     
     private func setupAcessibility() {
         accessibilityElements = [topPicksHeadline, wineCategories, moreDetailsButton, suggestionsHeadline, suggestionsList]
@@ -111,7 +115,7 @@ final class PairingResultsView: UIView {
     private func setupNotifications() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(focusMoreDetailsButton),
-                                               name: Notification.Name("didDismissMoreDetails"),
+                                               name: Notification.Name.didDismissMoreDetails,
                                                object: nil)
     }
     
@@ -121,6 +125,8 @@ final class PairingResultsView: UIView {
         UIAccessibility.post(notification: .layoutChanged, argument: moreDetailsButton)
     }
 }
+
+// MARK: - View Code
 
 extension PairingResultsView: ViewCode {
     func buildViewHierarchy() {
@@ -132,25 +138,25 @@ extension PairingResultsView: ViewCode {
     }
     
     func setupConstraints() {
-        topPicksHeadline.topAnchor.constraint(equalTo: topAnchor, constant: 16).isActive = true
+        topPicksHeadline.topAnchor.constraint(equalTo: topAnchor, constant: kMargin).isActive = true
         topPicksHeadline.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         topPicksHeadline.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
-        wineCategories.topAnchor.constraint(equalTo: topPicksHeadline.bottomAnchor, constant: 8).isActive = true
+        wineCategories.topAnchor.constraint(equalTo: topPicksHeadline.bottomAnchor, constant: kMargin/2).isActive = true
         wineCategories.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         wineCategories.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
-        moreDetailsButton.topAnchor.constraint(equalTo: wineCategories.bottomAnchor, constant: 16).isActive = true
+        moreDetailsButton.topAnchor.constraint(equalTo: wineCategories.bottomAnchor, constant: kMargin).isActive = true
         moreDetailsButton.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
-        suggestionsHeadline.topAnchor.constraint(equalTo: moreDetailsButton.bottomAnchor, constant: 24).isActive = true
+        suggestionsHeadline.topAnchor.constraint(equalTo: moreDetailsButton.bottomAnchor, constant: kMargin*2).isActive = true
         suggestionsHeadline.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         suggestionsHeadline.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
-        suggestionsList.topAnchor.constraint(equalTo: suggestionsHeadline.bottomAnchor, constant: 8).isActive = true
+        suggestionsList.topAnchor.constraint(equalTo: suggestionsHeadline.bottomAnchor, constant: kMargin/2).isActive = true
+        suggestionsList.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         suggestionsList.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         suggestionsList.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        suggestionsList.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
     func setupAdditionalConfiguration() {

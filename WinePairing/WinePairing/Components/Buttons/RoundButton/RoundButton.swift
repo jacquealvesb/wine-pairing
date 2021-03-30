@@ -9,6 +9,12 @@ import UIKit
 
 final class RoundButton: Button {
     
+    // MARK: - Constants
+    
+    private let kMinWidth: CGFloat = 80
+    private let kMaxWidth: CGFloat = 210
+    private let kMinHeight: CGFloat = 44
+    
     // MARK: - Variables
     
     var text: String
@@ -26,7 +32,7 @@ final class RoundButton: Button {
         }
     }
     
-    // MARK: - Life cycle
+    // MARK: - Life Cycle
     
     init(text: String, color: UIColor, action: (() -> Void)? = nil) {
         self.text = text
@@ -79,20 +85,16 @@ extension RoundButton: ViewCode {
     func buildViewHierarchy() {}
     
     func setupConstraints() {
-        heightAnchor.constraint(greaterThanOrEqualToConstant: 44.0).isActive = true
-        widthAnchor.constraint(lessThanOrEqualToConstant: 210.0).isActive = true
-        widthAnchor.constraint(greaterThanOrEqualToConstant: 80).isActive = true
+        widthAnchor.constraint(greaterThanOrEqualToConstant: kMinWidth).isActive = true
+        widthAnchor.constraint(lessThanOrEqualToConstant: kMaxWidth).isActive = true
+        heightAnchor.constraint(greaterThanOrEqualToConstant: kMinHeight).isActive = true
     }
     
     func setupAdditionalConfiguration() {
         backgroundColor = color
         contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        layer.cornerRadius = 22
-        clipsToBounds = true
-        layer.masksToBounds = false
-        layer.shadowRadius = 4
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.25
-        layer.shadowOffset = CGSize(width: 0, height: 4)
+        
+        applyRoundedCorner(radius: 22)
+        applyShadow()
     }
 }

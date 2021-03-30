@@ -9,6 +9,12 @@ import UIKit
 
 final class PairingView: UIView {
     
+    // MARK: - Constants
+    
+    private let kMargin: CGFloat = 16
+    private let kMinWidth: CGFloat = 44
+    private let kMinHeight: CGFloat = 44
+    
     // MARK: - Variables
     
     private var viewModel: PairingViewModel? {
@@ -27,9 +33,9 @@ final class PairingView: UIView {
     
     lazy var closeButton: Button = {
         let view = Button(frame: .zero)
-        let image = UIImage(systemName: "chevron.compact.down",
+        let image = UIImage(systemName: Constants.Images.downArrow,
                             withConfiguration: UIImage.SymbolConfiguration(weight: .bold))?
-            .withTintColor(Colors.button, renderingMode: .alwaysOriginal)
+            .withTintColor(Constants.Colors.button, renderingMode: .alwaysOriginal)
 
         view.contentVerticalAlignment = .fill
         view.contentHorizontalAlignment = .fill
@@ -38,10 +44,7 @@ final class PairingView: UIView {
         view.accessibilityLabel = "Close"
         view.translatesAutoresizingMaskIntoConstraints = false
 
-        view.layer.shadowRadius = 4
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOpacity = 0.25
-        view.layer.shadowOffset = CGSize(width: 0, height: 4)
+        view.applyShadow()
         
         return view
     }()
@@ -105,6 +108,8 @@ final class PairingView: UIView {
     }
 }
 
+// MARK: - View Code
+
 extension PairingView: ViewCode {
     func buildViewHierarchy() {
         addSubview(closeButton)
@@ -112,18 +117,18 @@ extension PairingView: ViewCode {
     }
     
     func setupConstraints() {
-        closeButton.topAnchor.constraint(equalTo: topAnchor, constant: 16).isActive = true
-        closeButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        closeButton.widthAnchor.constraint(equalToConstant: 44).isActive = true
+        closeButton.topAnchor.constraint(equalTo: topAnchor, constant: kMargin).isActive = true
+        closeButton.widthAnchor.constraint(equalToConstant: kMinWidth).isActive = true
+        closeButton.heightAnchor.constraint(equalToConstant: kMinHeight).isActive = true
         closeButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
-        contentView.topAnchor.constraint(equalTo: closeButton.bottomAnchor, constant: 16).isActive = true
-        contentView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
-        contentView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
+        contentView.topAnchor.constraint(equalTo: closeButton.bottomAnchor, constant: kMargin).isActive = true
         contentView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        contentView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: kMargin).isActive = true
+        contentView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -kMargin).isActive = true
     }
     
     func setupAdditionalConfiguration() {
-        backgroundColor = Colors.quoteBackground
+        backgroundColor = Constants.Colors.background
     }
 }

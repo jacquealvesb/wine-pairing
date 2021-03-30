@@ -10,6 +10,10 @@ import AMPopTip
 
 final class MainView: UIView {
     
+    // MARK: - Constants
+    
+    private let kMargin: CGFloat = 16
+    
     // MARK: - Views
     
     lazy var label: UILabel = {
@@ -36,7 +40,7 @@ final class MainView: UIView {
     lazy var errorPopUp: PopTip = {
         let view = PopTip()
         view.shouldDismissOnTap = true
-        view.bubbleColor = Colors.errorPopUp
+        view.bubbleColor = Constants.Colors.errorPopUp
         view.accessibilityUserInputLabels = [""]
         view.isAccessibilityElement = true
         view.shouldGroupAccessibilityChildren = true
@@ -44,7 +48,7 @@ final class MainView: UIView {
     }()
     
     lazy var pairButton: RoundButton = {
-        let view = RoundButton(text: "Pair With Wine", color: Colors.button)
+        let view = RoundButton(text: "Pair With Wine", color: Constants.Colors.button)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.accessibilityUserInputLabels = ["Pair", "Pair With Wine"]
         return view
@@ -56,7 +60,7 @@ final class MainView: UIView {
         return view
     }()
     
-    // MARK: - Life cycle
+    // MARK: - Life Cycle
     
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
@@ -68,7 +72,7 @@ final class MainView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Error
+    // MARK: - Error Pop-up
     
     private func setupErrorPopUp() {
         errorPopUp.entranceAnimation = UIAccessibility.isReduceMotionEnabled ? .none : .scale
@@ -93,6 +97,8 @@ final class MainView: UIView {
     }
 }
 
+// MARK: - View Code
+
 extension MainView: ViewCode {
     func buildViewHierarchy() {
         addSubview(searchBar)
@@ -102,22 +108,22 @@ extension MainView: ViewCode {
     }
     
     func setupConstraints() {
-        searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
-        searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
+        searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: kMargin).isActive = true
+        searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -kMargin).isActive = true
         searchBar.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
-        label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
-        label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
         label.bottomAnchor.constraint(equalTo: searchBar.topAnchor).isActive = true
+        label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: kMargin).isActive = true
+        label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -kMargin).isActive = true
         
+        pairButton.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: kMargin).isActive = true
         pairButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        pairButton.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 8).isActive = true
         
+        activityIndicator.topAnchor.constraint(equalTo: pairButton.bottomAnchor, constant: kMargin).isActive = true
         activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        activityIndicator.topAnchor.constraint(equalTo: pairButton.bottomAnchor, constant: 8).isActive = true
     }
     
     func setupAdditionalConfiguration() {
-        backgroundColor = Colors.quoteBackground
+        backgroundColor = Constants.Colors.background
     }
 }

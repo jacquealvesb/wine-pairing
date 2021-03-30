@@ -9,7 +9,12 @@ import UIKit
 
 final class TextButton: Button {
     
-    // MARK: - Life cycle
+    // MARK: - Constants
+    
+    private let kMinWidth: CGFloat = 44
+    private let kMinHeight: CGFloat = 44
+    
+    // MARK: - Life Cycle
     
     init(text: String, color: UIColor, action: (() -> Void)? = nil) {
         super.init(frame: .zero)
@@ -47,8 +52,8 @@ extension TextButton: ViewCode {
     func buildViewHierarchy() {}
     
     func setupConstraints() {
-        heightAnchor.constraint(greaterThanOrEqualToConstant: 44.0).isActive = true
-        widthAnchor.constraint(greaterThanOrEqualToConstant: 44.0).isActive = true
+        widthAnchor.constraint(greaterThanOrEqualToConstant: kMinWidth).isActive = true
+        heightAnchor.constraint(greaterThanOrEqualToConstant: kMinHeight).isActive = true
     }
     
     func setupAdditionalConfiguration() {
